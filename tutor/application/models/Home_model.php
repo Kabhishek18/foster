@@ -51,7 +51,59 @@ class Home_model extends CI_Model
          $insert = $this->db->insert($this->users,$data);
         return $insert?true:false;
     }
-	
+	//Update User
+
+     public function UpdateUser($auth){
+        $data =array('users_name'=> $auth['users_name'], 
+                     'users_mobile'=> $auth['users_mobile'],   
+                        );
+
+
+        $this->db->where('users_id',$auth['users_id']);
+        $update = $this->db->update($this->users,$data);
+        return $update?true:false;
+    }
+    //Update USer Image
+    public function UpdateUserImage($auth){
+        $data =array('users_image'=> $auth['users_image']  
+                        );
+
+
+        $this->db->where('users_id',$auth['users_id']);
+        $update = $this->db->update($this->users,$data);
+        return $update?true:false;
+    }
+    //Update User Password
+    public function UpdatePassword($auth){
+        $data =array('users_password'=> $auth['users_password']  
+                        );
+
+
+        $this->db->where('users_id',$auth['users_id']);
+        $update = $this->db->update($this->users,$data);
+        return $update?true:false;
+    }
+
+
+    //Bank Detail Update
+    public function UpdateBankAccount($auth,$id){
+        $data =array('users_bankaccount'=> $auth  
+                        );
+        $this->db->where('users_id',$id);
+        $update = $this->db->update($this->users,$data);
+        return $update?true:false;
+    }
+
+    //Update Pan Image
+    public function UpdatePanImage($auth){
+        $data =array('users_pancard'=> $auth['users_pancard']  
+                        );
+
+
+        $this->db->where('users_id',$auth['users_id']);
+        $update = $this->db->update($this->users,$data);
+        return $update?true:false;
+    }
 
     //Email Verify
      public function EmailVerify($users_token,$users_email_verify){

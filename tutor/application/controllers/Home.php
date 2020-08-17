@@ -241,14 +241,12 @@ class Home extends CI_Controller {
 						$this->session->unset_userdata('user_account');	   
 						$this->session->sess_destroy();	
 						$this->load->view('home/include/header');
-						$this->load->view('home/include/nav');
 						$this->session->set_flashdata('success', '<span style="color:green">Thank You, For Registration, Please Verfiy Your Email</span>');
 						$this->load->view('status');
 						$this->load->view('home/include/footer');	
 					}
 					else{
 						$this->load->view('home/include/header');
-						$this->load->view('home/include/nav');
 						$this->session->set_flashdata('error', '<span style="color:red">Sorry, Something Misfortune Happen! </span>');
 						$this->load->view('status');
 						$this->load->view('home/include/footer');	
@@ -259,7 +257,6 @@ class Home extends CI_Controller {
 		}
 		else{
 			$this->load->view('home/include/header');
-			$this->load->view('home/include/nav');
 			$this->session->set_flashdata('error', '<span>Sorry, Your Password Did not Match</span>');
 			$this->load->view('status');
 			$this->load->view('home/include/footer');
@@ -268,11 +265,7 @@ class Home extends CI_Controller {
 
 	}
 
-
-
-
-
-
+	//Email Verification
 	public function EmailVerification()
 	{
 		$users_token =$this->uri->segment(2,0);
@@ -294,6 +287,7 @@ class Home extends CI_Controller {
 				
 	}
 
+	//Email Reverfication
 	public function ResendEmailVerification()
 	{
 		$auth= $this->session->user_account;
@@ -347,13 +341,205 @@ class Home extends CI_Controller {
 						$this->load->view('home/include/footer');			
 	}
 
-
-	public function Scheduler()
+	//Profile
+	public function Profile()
 	{
-		$this->load->view('home/scheduler');
+		$data = $this->session->user_account;
+		if($data){	
+			if ($data['users_email_verify']==0) {
+			
+				if ($data['users_status']==0) {
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/sidebar',$data);
+					$this->load->view('home/profile');
+					$this->load->view('home/include/footile');
+					$this->load->view('home/include/footer');
+				}
+				else{
+					$this->load->view('home/include/header');
+					$this->session->set_flashdata('error', '<span style="color:red">Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator</span>');
+					$this->load->view('status');
+					$this->load->view('home/include/footer');	
+				}
+			}else{
+					$this->load->view('home/include/header');
+					$this->session->set_flashdata('success', '<span style="color:red">Sorry, Your Account is Not Verified </span>');
+					$this->load->view('verify');
+					$this->load->view('home/include/footer');
+			}
+		}
+		else{
+			redirect();
+		}
+
+	}
+
+	//Profile Update
+	public function ProfileUpdate()
+	{
+		$auth['users_id']=$this->input->post("userid");
+		$auth['users_name']=$this->input->post("username");
+		$auth['users_mobile']=$this->input->post("mobile");
+		$update =$this->home_model->UpdateUser($auth);
+		if ($update) {
+			$this->session->set_flashdata('success', '<span style="color:green">Profile Updated Successfully.</span>');   
+			redirect('profile');
+		}
+		else{
+
+			$this->session->set_flashdata('error', '<span>Something Misfortune happened !!!</span>');
+			redirect('profile');
+		}
+
+	}
+
+	public function Updatepass()
+	{
+		$auth['users_id']=$this->input->post("userid");
+		$auth['users_password']=md5($this->input->post("password"));	
+		$auths['cpassword']=md5($this->input->post("cpassword"));
+		if ($auths['cpassword'] == $auth['users_password']) {
+		
+			$update =$this->home_model->UpdatePassword($auth);
+			if ($update) {
+			$this->session->set_flashdata('success', '<span style="color:green">Profile Updated Successfully.</span>');
+			$this->session->unset_userdata('user_account');	   
+			redirect('');
+			}
+			else{
+
+				$this->session->set_flashdata('passerror', '<span>Something Misfortune happened !!!</span>');
+				redirect('profile');
+			}
+		}
+		else{
+			
+			$this->session->set_flashdata('passerror', 'Sorry, Your Password Did not Match');
+			redirect('profile');	
+		}	
+	}
+
+	public function ProfileImage()
+	{
+			$auth['users_id']=$this->input->post("userid");
+		
+
+			$dir ='uploads/'.$auth['users_id'];
+			if (!is_dir($dir)) {
+				mkdir($dir, 0755, TRUE);
+			}
+			$config['upload_path'] =  $dir;
+	        $config['allowed_types'] = 'jpg|png|jpeg';
+	        $config['max_size'] = 3000;
+	        $this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if($this->upload->do_upload('profile_image')){
+	 		$image= $this->upload->data();
+			$auth['users_image'] =$image['file_name'];}
+			else{
+				$auth['users_image'] =null;
+			}
+		
+			$update =$this->home_model->UpdateUserImage($auth);
+			if($update){
+				$_SESSION['user_account']['users_image'] =$auth['users_image'];
+				$this->session->set_flashdata('successimage', '<span>Profile Image Updated Successfully. Please Relogin to See Change </span>');  
+				redirect('profile');
+			}
+			else{
+				$this->session->set_flashdata('errorimage', '<span>Misfortune happened! </span>');
+				redirect('profile');
+			}
+		
+	}
+
+	//Bank Profile
+	public function BankProfile()
+	{	
+
+		$data = $this->session->user_account;
+		if($data){	
+			if ($data['users_email_verify']==0) {
+			
+				if ($data['users_status']==0) {
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/sidebar',$data);
+					$this->load->view('home/bankprofile');
+					$this->load->view('home/include/footile');
+					$this->load->view('home/include/footer');
+				}
+				else{
+					$this->load->view('home/include/header');
+					$this->session->set_flashdata('error', '<span style="color:red">Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator</span>');
+					$this->load->view('status');
+					$this->load->view('home/include/footer');	
+				}
+			}else{
+					$this->load->view('home/include/header');
+					$this->session->set_flashdata('success', '<span style="color:red">Sorry, Your Account is Not Verified </span>');
+					$this->load->view('verify');
+					$this->load->view('home/include/footer');
+			}
+		}
+		else{
+			redirect();
+		}
+	}
+
+	public function BankUpdate()
+	{	
+		$data = $this->session->user_account;
+		$auth['account_number']=$this->input->post("account_number");
+		$auth['account_name']=($this->input->post("account_name"));	
+		$auth['ifsc_code']=$this->input->post("ifsc_code");	
+		$auths['confirm_number']=$this->input->post("confirm_number");
+		if ($auth['account_number'] == $auths['confirm_number']) {
+			$auth = json_encode($auth);
+			$update =$this->home_model->UpdateBankAccount($auth,$data['users_id']);
+			$this->session->set_flashdata('success', '<span style="color:green">Account Updated Successfully.</span>');
+			redirect('bankprofile');
+		}
+		else{
+			
+			$this->session->set_flashdata('error', 'Sorry, Your Account Number Did not Match');
+			redirect('bankprofile');	
+		}	
 	}
 
 
+	public function BankPanId()
+	{
+			$auth['users_id']=$this->input->post("userid");
+		
 
+			$dir ='uploads/'.$auth['users_id'];
+			if (!is_dir($dir)) {
+				mkdir($dir, 0755, TRUE);
+			}
+			$config['upload_path'] =  $dir;
+	        $config['allowed_types'] = 'jpg|png|jpeg';
+	        $config['max_size'] = 3000;
+	        $this->load->library('upload', $config);
+			$this->upload->initialize($config);
+
+			if($this->upload->do_upload('profile_image')){
+	 		$image= $this->upload->data();
+			$auth['users_pancard'] =$image['file_name'];}
+			else{
+				$auth['users_pancard'] =null;
+			}
+		
+			$update =$this->home_model->UpdatePanImage($auth);
+			if($update){
+				$_SESSION['user_account']['users_pancard'] =$auth['users_pancard'];
+				$this->session->set_flashdata('successimage', '<span>Profile Image Updated Successfully. Please Relogin to See Change </span>');  
+				redirect('bankprofile');
+			}
+			else{
+				$this->session->set_flashdata('errorimage', '<span>Misfortune happened! </span>');
+				redirect('bankprofile');
+			}
+	}
 
 }

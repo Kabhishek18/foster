@@ -20,3 +20,5 @@ $route['verify/:any/:any/:any'] = 'home/EmailVerification';
 
 
 $route['registration'] ='home/Register';
+$route['profile'] ='home/Profile';
+$route['bankprofile'] ='home/BankProfile';

@@ -33,5 +33,10 @@
 <script src="<?=base_url()?>tutor/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?=base_url()?>tutor/dist/js/pages/dashboard.js"></script>
+<!-- SweetAlert2 -->
+<script src="<?=base_url()?>tutor/plugins/sweetalert2/sweetalert2.min.js"></script>
+<!-- Toastr -->
+<script src="<?=base_url()?>tutor/plugins/toastr/toastr.min.js"></script>
+
 </body>
 </html>

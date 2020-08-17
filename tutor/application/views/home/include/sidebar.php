@@ -127,7 +127,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?=base_url()?>tutor/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?=base_url()?>uploads/<?=(!empty($users_id)?$users_id:'')?>/<?=(!empty($users_image)?$users_image:'')?>" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <span  class="d-block" style="color:snow"><?=(!empty($users_name)?$users_name:'')?></span>
@@ -137,8 +137,9 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
+          <li class="nav-header"><span style="color: red"><i class="fas fa-signal"></i></span> Account Not Verified</li>    
           <li class="nav-header">DASHBOARD</li>    
-          <li class="nav-item menu-open">
+          <li class="nav-item ">
             <a href="#" class="nav-link ">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -153,48 +154,32 @@
                   <p>Dashboard v1</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
+           
             </ul>
           </li>
            <li class="nav-header">PROFILE</li>    
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+             <i class="fas fa-users"></i>
               <p>
-                Dashboard
+                Profile
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link ">
+                <a href="<?=base_url()?>profile" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Personal</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <li class="nav-item">
+                <a href="<?=base_url()?>bankprofile" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Bank Details</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li>
+           
             </ul>
           </li>
           <li class="nav-header">LOGOUT</li>
