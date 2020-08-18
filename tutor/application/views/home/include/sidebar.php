@@ -136,8 +136,15 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
-          <li class="nav-header"><span style="color: red"><i class="fas fa-signal"></i></span> Account Not Verified</li>    
+          <?php if($users_account == 1){?>
+          <li class="nav-header">
+            <span style="color: red"><i class="fas fa-signal"></i></span> Account Not Verified
+          </li>
+          <?php }else{?>
+               <li class="nav-header">
+            <span style="color: green"><i class="fas fa-signal"></i></span> &nbsp;Verfied Account
+          </li>
+          <?php }?>
           <li class="nav-header">DASHBOARD</li>    
           <li class="nav-item ">
             <a href="#" class="nav-link ">
@@ -154,7 +161,12 @@
                   <p>Dashboard v1</p>
                 </a>
               </li>
-           
+              <li class="nav-item">
+                <a href="<?=base_url()?>available" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Availiablity</p>
+                </a>
+              </li>
             </ul>
           </li>
            <li class="nav-header">PROFILE</li>    

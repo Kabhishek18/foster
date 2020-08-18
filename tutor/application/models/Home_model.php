@@ -6,6 +6,7 @@ class Home_model extends CI_Model
 {
 	 function __construct() {
         $this->users   = 'tutors';
+        $this->tutors_avail   = 'tutors_avail';
     }
 
 
@@ -113,6 +114,46 @@ class Home_model extends CI_Model
     }
 
 
+    public function AvailabiltyList($id = '')
+    {
+        $this->db->select('*');
+        $this->db->from($this->tutors_avail);
+       
+        if($id){
+            $array = array('tutor_id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function Be_offline($value)
+    {
+         $data =array('avail_type'=> '1'
+                        );
+        $this->db->where('tutor_id',$value);
+        $update = $this->db->update($this->tutors_avail,$data);
+        return $update?true:false;
+    }
+
+    public function Be_online($value)
+    {
+        $data =array('avail_type'=> '0',
+                      'start_date'=> $value['sdate'],
+                      'end_date'=> $value['edate'],
+                      'start_time'=> $value['stime'],
+                      'end_time'=> $value['etime'],  
+                        );
+        $this->db->where('tutor_id',$value['id']);
+        $update = $this->db->update($this->tutors_avail,$data);
+        return $update?true:false;
+    }
 
 
 

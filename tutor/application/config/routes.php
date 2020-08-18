@@ -22,3 +22,4 @@ $route['verify/:any/:any/:any'] = 'home/EmailVerification';
 $route['registration'] ='home/Register';
 $route['profile'] ='home/Profile';
 $route['bankprofile'] ='home/BankProfile';
+$route['available'] ='home/Tutor_availabilty';

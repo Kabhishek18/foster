@@ -16,7 +16,8 @@ class Home extends CI_Controller {
 
 	//Login Page
 	public function index()
-	{	$data = $this->session->user_account;
+	{	
+		$data = $this->session->user_account;
 		if($data){
 			redirect('dashboard');
 		}
@@ -33,7 +34,6 @@ class Home extends CI_Controller {
 		$this->load->view('home/include/header');
 		$this->load->view('home/registration');;
 		$this->load->view('home/include/footer');
-
 	}
 
 
@@ -65,8 +65,7 @@ class Home extends CI_Controller {
 		  	 		$this->session->set_flashdata('error', '<span style="color:red">Invalid Credential</span>');
 		  	 		redirect();
 		  	 	}
-		  	 }
-			
+		  	 }		
 	}
 
 	//Dashboard
@@ -100,7 +99,6 @@ class Home extends CI_Controller {
 		else{
 			redirect();
 		}
-
 	}
 
 
@@ -262,7 +260,6 @@ class Home extends CI_Controller {
 			$this->load->view('home/include/footer');
 
 		}
-
 	}
 
 	//Email Verification
@@ -283,8 +280,7 @@ class Home extends CI_Controller {
 			$this->session->set_flashdata('error', '<span>Sorry, Verification Failed</span>');
 			$this->load->view('status');
 			$this->load->view('home/include/footer');
-		}
-				
+		}			
 	}
 
 	//Email Reverfication
@@ -371,7 +367,6 @@ class Home extends CI_Controller {
 		else{
 			redirect();
 		}
-
 	}
 
 	//Profile Update
@@ -390,7 +385,6 @@ class Home extends CI_Controller {
 			$this->session->set_flashdata('error', '<span>Something Misfortune happened !!!</span>');
 			redirect('profile');
 		}
-
 	}
 
 	public function Updatepass()
@@ -450,8 +444,7 @@ class Home extends CI_Controller {
 			else{
 				$this->session->set_flashdata('errorimage', '<span>Misfortune happened! </span>');
 				redirect('profile');
-			}
-		
+			}	
 	}
 
 	//Bank Profile
@@ -507,7 +500,6 @@ class Home extends CI_Controller {
 		}	
 	}
 
-
 	public function BankPanId()
 	{
 			$auth['users_id']=$this->input->post("userid");
@@ -541,5 +533,74 @@ class Home extends CI_Controller {
 				redirect('bankprofile');
 			}
 	}
+
+	//Calender Availabilty
+	public function Tutor_availabilty()
+	{	
+		$data = $this->session->user_account;
+		if($data){	
+			if ($data['users_email_verify']==0) {
+			
+				if ($data['users_status']==0) {
+
+					$avail['avail'] = $this->home_model->AvailabiltyList($data['users_id']);
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/sidebar',$data);
+					$this->load->view('home/availabilty',$avail);
+					$this->load->view('home/include/footile');
+					$this->load->view('home/include/footer');
+				}
+				else{
+					$this->load->view('home/include/header');
+					$this->session->set_flashdata('error', '<span style="color:red">Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator</span>');
+					$this->load->view('status');
+					$this->load->view('home/include/footer');	
+				}
+			}else{
+					$this->load->view('home/include/header');
+					$this->session->set_flashdata('success', '<span style="color:red">Sorry, Your Account is Not Verified </span>');
+					$this->load->view('verify');
+					$this->load->view('home/include/footer');
+			}
+		}
+		else{
+			redirect();
+		}
+	}
+
+
+	//offline
+	public function avail_offline()
+	{
+		$data = $this->session->user_account;
+		if ($data['users_id']) {
+			$this->home_model->Be_offline($data['users_id']);
+			redirect('available');
+		}
+		else{
+			echo "Logout In Again";
+		}
+	}
+
+
+	//Online
+	public function avail_online()
+	{
+		$data = $this->session->user_account;
+		if ($data['users_id']) {
+			$val['id'] =$data['users_id'];
+			$val['sdate']=$this->input->post("sdate");
+			$val['edate']=$this->input->post("edate");
+			$val['stime']=$this->input->post("stime");
+			$val['etime']=$this->input->post("etime");
+			$this->home_model->Be_online($val);
+			redirect('available');
+		}
+		else{
+			echo "Logout In Again";
+		}
+	}
+
+
 
 }

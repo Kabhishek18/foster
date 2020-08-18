@@ -29,4 +29,13 @@
   <link rel="stylesheet" href="<?=base_url()?>tutor/plugins/toastr/toastr.min.css"> 
   <!-- SweetAlert2 -->
   <link rel="stylesheet" href="<?=base_url()?>tutor/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+   <!-- fullCalendar -->
+  <link rel="stylesheet" href="<?=base_url()?>tutor/plugins/fullcalendar/main.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>tutor/plugins/fullcalendar-daygrid/main.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>tutor/plugins/fullcalendar-timegrid/main.min.css">
+  <link rel="stylesheet" href="<?=base_url()?>tutor/plugins/fullcalendar-bootstrap/main.min.css">
+   <!-- Bootstrap4 Duallistbox -->
+  <link rel="stylesheet" href="<?=base_url()?>tutor/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+  <!-- BS Stepper -->
+  <link rel="stylesheet" href="<?=base_url()?>tutor/plugins/bs-stepper/css/bs-stepper.min.css">
 </head>
