@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="colorlib.com">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="<?=base_url()?>foster/assets/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="<?=base_url()?>foster/assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <div class="container">
+            <form method="POST" id="signup-form" action="" class="signup-form" enctype="multipart/form-data">
+                <h3></h3>
+                <fieldset>
+                    <span class="step-current"> <span class="step-current-content"><span class="step-number"><span>01</span>/05</span></span> </span>
+                    <div class="fieldset-flex">
+                        <figure>
+                            <img src="<?=base_url()?>foster/assets/images/signup-img-1.png" alt="">
+                        </figure>
+                        <div class="fieldset-content">
+                            <h2>Pick Your Dates for Demo Class !</h2>
+                            <div class="form-flex">
+                                <label for="rating_use">Select date</label>
+                                <div class="">
+                                    <input type="date" name="sdate" required="">
+                                </div>
+                            </div>
+
+                            <div class="form-flex">
+                                <label for="rating_use">Select Time</label>
+                                <div class="">
+                                    <input type="Time" name="stime" required="">
+                                </div>
+                            </div>
+                         <!--      <div class="form-flex">
+                                <label for="rating_use">Select Time</label>
+                                <div class="">
+                                    <input type="datetime-local" name=""  min="09:00" max="18:00">
+                                </div>
+                            </div> -->
+                             <div class="form-flex">
+                                <div class="">
+                                         <label for="rating_use">Timezone will be based on IST(Indian Standard Time Zone) ie. <?=date('H:i A',time())?> </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <h3></h3>
+                <fieldset>
+                    <span class="step-current"><span class="step-current-content"><span class="step-number"><span>02</span>/05</span></span></span>
+                    <div class="fieldset-flex">
+                        <figure>
+                            <img src="<?=base_url()?>foster/assets/images/signup-img-2.png" alt="">
+                        </figure>
+                        <div class="fieldset-content">
+                            <div class="form-textarea">
+                                 <label class="form-label">Enter your information manually below</label>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" name="full_name" id="full_name" placeholder="Full Name" required="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" placeholder="Email" required="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="phone_number" id="phone_number" placeholder="Phone number" required="" />
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                 <h3></h3>
+                <fieldset>
+                    <span class="step-current"><span class="step-current-content"><span class="step-number"><span>03</span>/05</span></span></span>
+                    <div class="fieldset-flex">
+                        <figure>
+                            <img src="<?=base_url()?>foster/assets/images/signup-img-2.png" alt="">
+                        </figure>
+                        <div class="fieldset-content">
+                            <div class="form-textarea">
+                            
+                            <div class="form-group">
+                                <label>Are you planning to study abroad or exploring PR (immigration) options? Pls, choose one. *</label>
+                                    <div class="form-group">    
+                                        <label class="radio">
+                                          <input type="radio" name="study_type" style="height: 15px;width:auto;display: inherit;" value="Academic" checked>
+                                            Academic (Study Abroad) 
+                                        </label>
+                                     </div>
+                                    <div class="form-group">    
+                                        <label class="radio">
+                                          <input type="radio" name="study_type" style="height: 15px;width:auto;display: inherit;" value="General">General (PR)
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>When are you planning to write IELTS? *</label>
+                                        <input type="text" name="when" placeholder="Text Here" required="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>What's your overall Target Band? *</label>
+                                        <input type="text" name="target" placeholder="Text Here" required="">
+                                    </div>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                   <h3></h3>
+                <fieldset>
+                    <span class="step-current"><span class="step-current-content"><span class="step-number"><span>04</span>/05</span></span></span>
+                    <div class="fieldset-flex">
+                        <figure>
+                            <img src="<?=base_url()?>foster/assets/images/signup-img-2.png" alt="">
+                        </figure>
+                        <div class="fieldset-content">
+                            <div class="form-textarea">
+                            
+                            <div class="form-group">
+                                <label>When are you likely to join us after attending the trial class? *</label>
+                                    <div class="form-group">    
+                                        <label class="radio">
+                                          <input type="radio" name="join" style="height: 15px;width:auto;display: inherit;" value="As soon as possible" checked>
+                                            As soon as possible
+                                        </label>
+                                     </div>
+                                    <div class="form-group">    
+                                        <label class="radio">
+                                          <input type="radio" name="join" style="height: 15px;width:auto;display: inherit;" value=" Within 1 month">
+                                            Within 1 month
+                                        </label>
+                                    </div>
+                                    <div class="form-group">    
+                                        <label class="radio">
+                                          <input type="radio" name="join" style="height: 15px;width:auto;display: inherit;" value="Within 2 months">
+                                            Within 2 months
+                                        </label>
+                                    </div>
+                                     <div class="form-group">    
+                                        <label class="radio">
+                                          <input type="radio" name="join" style="height: 15px;width:auto;display: inherit;" value="Not Sure with timings">
+                                           Not Sure with timings
+                                        </label>
+                                    </div>
+
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <h3></h3>
+                <fieldset>
+                    <span class="step-current"><span class="step-current-content"><span class="step-number"><span>05</span>/05</span></span></span>
+                    <div class="fieldset-flex">
+                        <figure>
+                            <img src="<?=base_url()?>foster/assets/images/signup-img-3.png" alt="">
+                        </figure>
+                        <div class="fieldset-content">
+                           
+                                <label for="your_review" class="form-label">Please share anything that will help prepare for our meeting.</label>
+                                <textarea name="your_review" id="your_review" placeholder="Write your note here"></textarea>
+                                <div id="output"></div> 
+
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="<?=base_url()?>foster/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?=base_url()?>foster/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="<?=base_url()?>foster/assets/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="<?=base_url()?>foster/assets/vendor/jquery-steps/jquery.steps.min.js"></script>
+    <script src="<?=base_url()?>foster/assets/js/main.js"></script>
+</body>
+
+</html>

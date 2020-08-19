@@ -313,9 +313,8 @@
 
 <!-- useless Code -->
 
-<!-- <a data-toggle="modal" data-target="#schedular" class="float">
-<i class="fa fa-plus my-float"></i>
-</a>
+<a href="<?=base_url()?>scheduler" class="float"> 
+	<i class="fa fa-plus my-float"></i></a>
 
 <style>
 .m-progress-bar {
@@ -324,64 +323,3 @@
     width: 5%;
 }
 </style>
-
-
-<form class="modal multi-step" id="schedular" action="#">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title step-1" data-step="1">Step 1</h4>
-                <h4 class="modal-title step-2" data-step="2">Step 2</h4>
-                <h4 class="modal-title step-3" data-step="3">Final Step</h4>
-                <div class="m-progress">
-                    <div class="m-progress-bar-wrapper">
-                        <div class="m-progress-bar">
-                        </div>
-                    </div>
-                    <div class="m-progress-stats">
-                        <span class="m-progress-current">
-                        </span>
-                        /
-                        <span class="m-progress-total">
-                        </span>
-                    </div>
-                    <div class="m-progress-complete">
-                        Completed
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body step-1" data-step="1">
-                <div class="row">
-                	<div class="col-lg-6 col-md-6 col-sm-4 col-xs-2">
-                		<div class="form-group">
-                			<label for="name"> First Name</label>
-                			<input type="text" class="form-control" name="">
-                		</div>
-                	</div>
-                	<div class="col-lg-6 col-md-6 col-sm-4 col-xs-2">
-                		<div class="form-group">
-                			<label for="name"> Last Name</label>
-                			<input type="text" class="form-control" name="">
-                		</div>
-                	</div>
-                </div>
-
-            </div>
-            <div class="modal-body step-2" data-step="2">
-                This is the second step.
-            </div>
-            <div class="modal-body step-3" data-step="3">
-                This is the final step.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent('#demo-modal-3', 2)">Continue</button>
-                <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 1)">Back</button>
-                <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 3)">Continue</button>
-                <button type="button" class="btn btn-primary step step-3" data-step="3" onclick="sendEvent('#demo-modal-3', 2)">Back</button>
-                <button type="submit" class="btn btn-primary step step-3" data-step="3" >Submit</button>
-
-            </div>
-        </div>
-    </div>
-</form> -->

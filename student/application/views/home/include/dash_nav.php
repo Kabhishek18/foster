@@ -13,7 +13,7 @@
 		                <span class="icon-bar"></span>
 		            </button>
 		        </div>
-		        <a href="<?=base_url()?>dashboard" class="navbar_brand float-left dn-smd">
+		        <a href="<?=base_url()?>" class="navbar_brand float-left dn-smd">
 		            
 		            <span>FosterBright</span>
 		        </a>

@@ -6,6 +6,7 @@ class Home_model extends CI_Model
 {
 	 function __construct() {
         $this->users   = 'users';
+        $this->slot   = 'slot';
     }
 
 
@@ -105,6 +106,26 @@ class Home_model extends CI_Model
         
         $update = $this->db->query("update userorder SET order_status='".$data['order_status']."' where id='".$data['id']."'");
         return $update?true:false;
+    }
+
+
+    public function Get_Slot($id = '')
+    {
+         $this->db->select('*');
+        $this->db->from($this->slot);
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
     }
 
 }

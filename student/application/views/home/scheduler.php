@@ -1,157 +1,186 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="colorlib.com">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form</title>
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="<?=base_url()?>foster/assets/fonts/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="<?=base_url()?>foster/assets/css/style.css">
-</head>
-
-<body>
-
-    <div class="main">
-
+    <!-- Inner Page Breadcrumb -->
+    <section class="inner_page_breadcrumb">
         <div class="container">
-            <form method="POST" id="signup-form" class="signup-form" enctype="multipart/form-data">
-                <h3></h3>
-                <fieldset>
-                    <span class="step-current"> <span class="step-current-content"><span class="step-number"><span>01</span>/03</span></span> </span>
-                    <div class="fieldset-flex">
-                        <figure>
-                            <img src="<?=base_url()?>foster/assets/images/signup-img-1.png" alt="">
-                        </figure>
-                        <div class="fieldset-content">
-                            <h2>Pick Your Dates for Demo Class !</h2>
-                            <div class="form-flex">
-                                <label for="rating_use">Select date</label>
-                                <div class="">
-                                    <input type="date" name="" value="">
-                                </div>
-                            </div>
-
-                            <div class="form-flex">
-                                <label for="rating_use">Select Time</label>
-                                <div class="">
-                                    <input type="Time" name=""  min="09:00" max="18:00">
-                                </div>
-                            </div>
-                              <div class="form-flex">
-                                <label for="rating_use">Select Time</label>
-                                <div class="">
-                                    <input type="datetime-local" name=""  min="09:00" max="18:00">
-                                </div>
-                            </div>
-                             <div class="form-flex">
-                                <div class="">
-                                  <select name="timezone_offset" id="timezone-offset"   >
-                                        <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
-                                        <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
-                                        <option value="-10:00">(GMT -10:00) Hawaii</option>
-                                        <option value="-09:50">(GMT -9:30) Taiohae</option>
-                                        <option value="-09:00">(GMT -9:00) Alaska</option>
-                                        <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-                                        <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-                                        <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-                                        <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-                                        <option value="-04:50">(GMT -4:30) Caracas</option>
-                                        <option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-                                        <option value="-03:50">(GMT -3:30) Newfoundland</option>
-                                        <option value="-03:00">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-                                        <option value="-02:00">(GMT -2:00) Mid-Atlantic</option>
-                                        <option value="-01:00">(GMT -1:00) Azores, Cape Verde Islands</option>
-                                        <option value="+00:00" selected="selected">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-                                        <option value="+01:00">(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</option>
-                                        <option value="+02:00">(GMT +2:00) Kaliningrad, South Africa</option>
-                                        <option value="+03:00">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-                                        <option value="+03:50">(GMT +3:30) Tehran</option>
-                                        <option value="+04:00">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-                                        <option value="+04:50">(GMT +4:30) Kabul</option>
-                                        <option value="+05:00">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-                                        <option value="+05:50">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-                                        <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
-                                        <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-                                        <option value="+06:50">(GMT +6:30) Yangon, Mandalay</option>
-                                        <option value="+07:00">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-                                        <option value="+08:00">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-                                        <option value="+08:75">(GMT +8:45) Eucla</option>
-                                        <option value="+09:00">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-                                        <option value="+09:50">(GMT +9:30) Adelaide, Darwin</option>
-                                        <option value="+10:00">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-                                        <option value="+10:50">(GMT +10:30) Lord Howe Island</option>
-                                        <option value="+11:00">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-                                        <option value="+11:50">(GMT +11:30) Norfolk Island</option>
-                                        <option value="+12:00">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
-                                        <option value="+12:75">(GMT +12:45) Chatham Islands</option>
-                                        <option value="+13:00">(GMT +13:00) Apia, Nukualofa</option>
-                                        <option value="+14:00">(GMT +14:00) Line Islands, Tokelau</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="col-xl-6 offset-xl-3 text-center">
+                    <div class="breadcrumb_content">
+                        <h4 class="breadcrumb_title">Book A Trial</h4>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Schedular</li>
+                        </ol>
                     </div>
-                </fieldset>
-
-                <h3></h3>
-                <fieldset>
-                    <span class="step-current"><span class="step-current-content"><span class="step-number"><span>02</span>/03</span></span></span>
-                    <div class="fieldset-flex">
-                        <figure>
-                            <img src="<?=base_url()?>foster/assets/images/signup-img-2.png" alt="">
-                        </figure>
-                        <div class="fieldset-content">
-                            <div class="form-textarea">
-                                <label for="your_review" class="form-label">Write A Note</label>
-                                <textarea name="your_review" id="your_review" placeholder="Write your note here"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <h3></h3>
-                <fieldset>
-                    <span class="step-current"><span class="step-current-content"><span class="step-number"><span>03</span>/03</span></span></span>
-                    <div class="fieldset-flex">
-                        <figure>
-                            <img src="<?=base_url()?>foster/assets/images/signup-img-3.png" alt="">
-                        </figure>
-                        <div class="fieldset-content">
-                            <label class="form-label">Enter your information manually below</label>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <input type="text" name="first_name" id="first_name" placeholder="First Name" />
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="last_name" id="last_name" placeholder="Last Name" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" placeholder="Email" />
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="phone_number" id="phone_number" placeholder="Phone number" />
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </div>
+    <!-- Our Team Members -->
 
-    <!-- JS -->
-    <script src="<?=base_url()?>foster/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="<?=base_url()?>foster/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="<?=base_url()?>foster/assets/vendor/jquery-validation/dist/additional-methods.min.js"></script>
-    <script src="<?=base_url()?>foster/assets/vendor/jquery-steps/jquery.steps.min.js"></script>
-    <script src="<?=base_url()?>foster/assets/js/main.js"></script>
-</body>
+    <?php $data= $this->session->user_account;
+        if($data){  ?>
+    <section class="our-team pb40">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8 col-xl-9">
+                    <div class="row">
+                       
+                        <div class="col-lg-12">
+                            <div class="courses_single_container">
+                                <!-- Form -->
+                                <div class="col-lg-12 form_grid">
+                                    <h2 class="mb5">Get Free Trial</h2>
+                                   <!--  <p>Foster Bright Learning</p> -->
+                                    <form class="contact_form" id="contact_form"  action="<?=base_url()?>home/SchedulerData" method="post" novalidate="novalidate">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputName">Available Date</label>
+                                                    <select class="form-control">
+                                                    <?php                                                        
+                                                                // Start date
+                                                                $date = $sdate_slot;
+                                                                // End date
+                                                                $end_date = $eslot_date;
 
-</html>
+                                                                while (strtotime($date) <= strtotime($end_date)) { ?>
+                                                                      <option><?=date('F,m d',strtotime($date))?></option>
+                                                                <?php $date = date ("Y-m-d", strtotime("+1 day", strtotime($date)));
+                                                                        }?>
+                                                    </select>                    
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="exampleInputName">Time Slot</label>
+                                                    <select class="form-control">
+                                                    <?php $time_slot = json_decode($time_slot);
+                                                        foreach($time_slot as $times){?>
+                                                            <option><?=$times?></option>
+                                                    <?php }?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputName">Full Name</label>
+                                                    <input id="form_name" name="name" class="form-control" required="required" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail">Your Email</label>
+                                                    <input id="form_email" name="email" class="form-control required email" required="required" type="email">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputSubject">Phone Number</label>
+                                                    <input id="form_subject" name="number" class="form-control required" required="required" type="number">
+                                                </div>
+                                            </div>
+                                              <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputSubject">Are you planning to study abroad or exploring PR (immigration) options? Pls, choose one. *</label><br>
+                                                    <label><input name="plan" required="required" type="radio" checked="" value="Academic (Study Abroad)">Academic (Study Abroad)</label>
+                                                    <label><input name="plan"  required="required" type="radio" value="General (PR)">General (PR)</label>
+                                                </div>
+                                            </div>
+                                              <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputSubject">When are you planning to write IELTS? *</label>
+                                                    <input id="form_subject" name="plan" class="form-control required" required="required" type="text">
+                                                </div>
+                                            </div>
+                                             <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputSubject">What's your overall Target Band? *</label>
+                                                    <input id="form_subject" name="plan" class="form-control required" required="required" type="text">
+                                                </div>
+                                            </div>
+                                              <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputSubject">When are you likely to join us after attending the trial class? *</label><br>
+                                                    <label><input name="join" required="required" type="radio" checked="" value="As soon as possible">As soon as possible</label>
+                                                    <label><input name="join"  required="required" type="radio" value="Within 1 months">Within 1 month</label>
+                                                    <label><input name="join"  required="required" type="radio" value="Within 2 months">Within 2 month</label>
+                                                    <label><input name="join"  required="required" type="radio" value="I'm not Sure">I'm not Sure</label>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Please share anything that will help prepare for our meeting.</label>
+                                                    <textarea id="form_message" name="message" class="form-control required" rows="5" required="required"></textarea>
+                                                </div>
+                                                <div class="form-group ui_kit_button mb0">
+                                                    <button type="submit" class="btn dbxshad btn-lg btn-thm">Submit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Form -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-4 col-xl-3">
+                
+                   <div class="selected_filter_widget style2">
+                        <span class="flaticon-clock float-left" style="font-size: 35px"></span><h4 class="mt15 fz20 fw500"> &nbsp;45 min free trial</h4>
+                        
+                        <br>
+                       <p> Hi there,</p>
+                       <p>We are keen to invest time to understand your study abroad OR immigration aspirations. This 45 min window gives both of us an opportunity to evaluate each other and for us to present you with a suitable study program that will help you achieve your target band in the shortest possible duration.</p>   
+                       <p>We look forward to seeing you for the trial class.</p> 
+                       <p>Cheers,</p>
+                       <p>Team</p>
+                       <p>Foster Bright Learning</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php }else{?>
+         <section class="our-team pb40">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8 col-xl-9">
+                    <div class="row">
+                       
+                        <div class="col-lg-12">
+                            <div class="courses_single_container">
+                                <!-- Form -->
+                                <div class="col-lg-12 form_grid">
+                                    <h2 class="mb5">Please Login to Book demo</h2>
+                                   <!--  <p>Foster Bright Learning</p> -->
+                                  <a href="#" class="btn btn-lg btn-dark" data-toggle="modal" data-target="#exampleModalCenter" style="width:80px;"> <span class="dn-md">Login</span></a> / <a href="#" class="btn btn-lg btn-dark" data-toggle="modal" data-target="#exampleModalCenter"><span class="dn-md">Sign Up</span></a>
+                                </div>
+
+                                <!-- Form -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-4 col-xl-3">
+                
+                   <div class="selected_filter_widget style2">
+                        <span class="flaticon-clock float-left" style="font-size: 35px"></span><h4 class="mt15 fz20 fw500"> &nbsp;45 min free trial</h4>
+                        
+                        <br>
+                       <p> Hi there,</p>
+                       <p>We are keen to invest time to understand your study abroad OR immigration aspirations. This 45 min window gives both of us an opportunity to evaluate each other and for us to present you with a suitable study program that will help you achieve your target band in the shortest possible duration.</p>   
+                       <p>We look forward to seeing you for the trial class.</p> 
+                       <p>Cheers,</p>
+                       <p>Team</p>
+                       <p>Foster Bright Learning</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php }?>

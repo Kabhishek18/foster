@@ -16,6 +16,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
 
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<link rel="stylesheet" href="<?=base_url()?>foster/css/daterangepicker.css">
+
 <!-- custom -->
 <!-- Responsive stylesheet -->
 <link rel="stylesheet" href="<?=base_url()?>foster/css/responsive.css">

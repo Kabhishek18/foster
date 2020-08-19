@@ -26,7 +26,11 @@
             return true;
         },
         onFinished: function(event, currentIndex) {
-            alert('Sumited');
+             var x = $("form").serializeArray();
+               $.each(x, function(i, field) { 
+                    $("#output").append(field.name + ":" 
+                            + field.value + " "); 
+                }); 
         }
     });
 

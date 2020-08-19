@@ -22,3 +22,8 @@ $route['verify/:any/:any/:any'] = 'home/EmailVerification';
 
 $route['course/:num/:any'] = 'cart/index';
 $route['course-detail/:num/:any'] = 'cart/CourseDetail';
+
+
+//Scheduler
+$route['scheduler'] = 'home/Scheduler';
+

@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+date_default_timezone_set('Asia/Kolkata');
 
 class Home extends CI_Controller {
 	function __construct(){

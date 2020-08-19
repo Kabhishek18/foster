@@ -95,6 +95,10 @@
 <!-- Custom script for all pages --> 
 <script type="text/javascript" src="<?=base_url()?>foster/js/script.js"></script>
 
+<script src="<?=base_url()?>foster/js/moment.min.js"></script>
+<script src="<?=base_url()?>foster/js/daterangepicker.js"></script>
+
+
 <!-- custom -->
 <!-- <script src="<?=base_url()?>foster/js/multi-step-modal.js"></script>
 <script>
@@ -131,9 +135,15 @@ $('.first').click(function(){
 
 })
 </script>
+<script>
+  $(document).on('ready', function () {
+    // initialization of daterangepicker
+    $('.js-daterangepicker').daterangepicker();
+  });
+</script>
 <!-- custom -->
 </body>
 </html>
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<!-- <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-<script type="text/javascript">Calendly.initBadgeWidget({ url: 'https://calendly.com/fosterbright/free-trial', text: 'Book free trial here', color: '#1856f7', textColor: '#ffffff', branding: false });</script>
+<script type="text/javascript">Calendly.initBadgeWidget({ url: 'https://calendly.com/fosterbright/free-trial', text: 'Book free trial here', color: '#1856f7', textColor: '#ffffff', branding: false });</script> -->

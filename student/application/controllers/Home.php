@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+date_default_timezone_set('Asia/Kolkata');
 
 class Home extends CI_Controller {
 	function __construct(){
@@ -335,10 +336,21 @@ class Home extends CI_Controller {
 
 	public function Scheduler()
 	{
-		$this->load->view('home/scheduler');
+		
+		
+			$slot = $this->home_model->Get_Slot('1');
+			$this->load->view('home/include/header');
+			$this->load->view('home/include/nav');
+			$this->load->view('home/scheduler',$slot);
+			$this->load->view('home/include/footer');
+		
 	}
 
-
+	function SchedulerData()
+	{
+		$time =  array('1','2','3','4','5','6','7' );
+		echo json_encode($time);
+	}
 
 
 }
