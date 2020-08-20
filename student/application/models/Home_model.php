@@ -7,6 +7,7 @@ class Home_model extends CI_Model
 	 function __construct() {
         $this->users   = 'users';
         $this->slot   = 'slot';
+        $this->batch   = 'batches';
     }
 
 
@@ -127,5 +128,37 @@ class Home_model extends CI_Model
         // return fetched data
         return !empty($result)?$result:false;
     }
+
+
+
+    public function DemoForm($value)
+    {
+        $insert = $this->db->insert($this->batch,$value);
+        return $insert?true:false;
+    }
+
+
+     public function GetBatchUser($id = '')
+    {
+         $this->db->select('*');
+        $this->db->from($this->batch);
+
+        if($id){
+            $array = array('user_id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $array = array('user_id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+
 
 }

@@ -44,12 +44,10 @@ class Home extends CI_Controller {
 		  	 }
 		  	 else{
 		  	 	redirect();
-		  	 }
-			
+		  	 }	
 	}
 
 	//Dashboard
-
 	public function Dashboard()
 	{
 		$data= $this->session->user_account;
@@ -80,7 +78,6 @@ class Home extends CI_Controller {
 		else{
 			redirect();
 		}
-
 	}
 
 
@@ -249,14 +246,9 @@ class Home extends CI_Controller {
 			$this->load->view('home/include/footer');
 
 		}
-
 	}
 
-
-
-
-
-
+	//Email Verfication
 	public function EmailVerification()
 	{
 		$users_token =$this->uri->segment(2,0);
@@ -279,7 +271,7 @@ class Home extends CI_Controller {
 		}
 				
 	}
-
+	//Resend Email
 	public function ResendEmailVerification()
 	{
 		$auth= $this->session->user_account;
@@ -343,14 +335,66 @@ class Home extends CI_Controller {
 			$this->load->view('home/include/nav');
 			$this->load->view('home/scheduler',$slot);
 			$this->load->view('home/include/footer');
-		
 	}
 
 	function SchedulerData()
 	{
-		$time =  array('1','2','3','4','5','6','7' );
-		echo json_encode($time);
+		$data= $this->session->user_account;
+		$var['user_id'] =$data['users_id']; 
+		$check_user =$this->home_model->GetBatchUser($var['user_id']);
+		if ($check_user == false) {
+		
+			$var['batch_start']=$this->input->post("sdate");
+			$var['batch_end'] = $var['batch_start'];
+
+			$var['batch_timestart']=$this->input->post("stime");
+			$var['batch_timeend'] = $var['batch_timestart'];
+
+			$var['batch_state'] = '0';
+
+			$var['batch_name']=$this->input->post("name");
+			$var['batch_token'] =generateUUID();
+
+			//dee
+
+			$dee['email']=$this->input->post("number");
+			$dee['plan']=$this->input->post("plan");
+			$dee['join']=$this->input->post("join");
+			$dee['message']=$this->input->post("message");
+
+			$var['batch_description'] = json_encode($dee); 
+			$var['batch_status'] = '0' ; 
+			$var['batch_state'] = '1' ;
+
+			$insert = $this->home_model->DemoForm($var);
+			if($insert) 
+			{
+				$this->session->set_flashdata('success', 'Successfully Receieved. Thank you for showing your intrest!!!');
+				redirect('scheduler');
+			}
+			else
+			{
+				$this->session->set_flashdata('error', 'Sorry,Something Misfortune Happened !!! ');
+				redirect('scheduler');			
+			}
+		}
+		else
+		{
+			$this->session->set_flashdata('error', ' Already Receieved. Demo Class Assigned !!! ');
+				redirect('scheduler');	
+		}	
+
 	}
+
+
+
+
+
+
+
+
+
+
 
 
 }

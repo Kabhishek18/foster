@@ -24,19 +24,26 @@
             <div class="row">
                 <div class="col-md-12 col-lg-8 col-xl-9">
                     <div class="row">
-                       
+                        <div class="col-lg-12">
+                            <h4>
+                                <?php if($this->session->flashdata('error')){ ?>
+                               <span style="color: red"> <?php echo $this->session->flashdata('error'); } ?> </span>
+                                <?php if($this->session->flashdata('success')){ ?>
+                                <span style="color: green"><?php echo $this->session->flashdata('success'); } ?></span>   
+                            </h4>
+                        </div>
                         <div class="col-lg-12">
                             <div class="courses_single_container">
                                 <!-- Form -->
                                 <div class="col-lg-12 form_grid">
                                     <h2 class="mb5">Get Free Trial</h2>
                                    <!--  <p>Foster Bright Learning</p> -->
-                                    <form class="contact_form" id="contact_form"  action="<?=base_url()?>home/SchedulerData" method="post" novalidate="novalidate">
+                                    <form class="contact_form" id="contact_form"  action="<?=base_url()?>home/SchedulerData" method="post" >
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="exampleInputName">Available Date</label>
-                                                    <select class="form-control">
+                                                    <select class="form-control" name="sdate">
                                                     <?php                                                        
                                                                 // Start date
                                                                 $date = $sdate_slot;
@@ -44,7 +51,7 @@
                                                                 $end_date = $eslot_date;
 
                                                                 while (strtotime($date) <= strtotime($end_date)) { ?>
-                                                                      <option><?=date('F,m d',strtotime($date))?></option>
+                                                                      <option value="<?=$date?>"><?=date('F,m d',strtotime($date))?></option>
                                                                 <?php $date = date ("Y-m-d", strtotime("+1 day", strtotime($date)));
                                                                         }?>
                                                     </select>                    
@@ -53,10 +60,10 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <label for="exampleInputName">Time Slot</label>
-                                                    <select class="form-control">
+                                                    <select class="form-control" name="stime">
                                                     <?php $time_slot = json_decode($time_slot);
                                                         foreach($time_slot as $times){?>
-                                                            <option><?=$times?></option>
+                                                            <option value="<?=$times?>"><?=$times?></option>
                                                     <?php }?>
                                                     </select>
                                                 </div>
@@ -82,8 +89,15 @@
                                               <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <label for="exampleInputSubject">Are you planning to study abroad or exploring PR (immigration) options? Pls, choose one. *</label><br>
-                                                    <label><input name="plan" required="required" type="radio" checked="" value="Academic (Study Abroad)">Academic (Study Abroad)</label>
-                                                    <label><input name="plan"  required="required" type="radio" value="General (PR)">General (PR)</label>
+                                                    <label>
+                                                        <div class="form-group">
+                                                            <input name="plan" required="required" type="radio" checked="" value="Academic (Study Abroad)"style="height: auto;"> Academic (Study Abroad)
+                                                        </div>
+                                                    </label>
+                                                    <label><div class="form-group">
+                                                        <input name="plan"  required="required" type="radio" value="General (PR)" style="height: auto;"> General (PR)
+                                                        </div>
+                                                    </label>
                                                 </div>
                                             </div>
                                               <div class="col-sm-12">
@@ -100,11 +114,34 @@
                                             </div>
                                               <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label for="exampleInputSubject">When are you likely to join us after attending the trial class? *</label><br>
-                                                    <label><input name="join" required="required" type="radio" checked="" value="As soon as possible">As soon as possible</label>
-                                                    <label><input name="join"  required="required" type="radio" value="Within 1 months">Within 1 month</label>
-                                                    <label><input name="join"  required="required" type="radio" value="Within 2 months">Within 2 month</label>
-                                                    <label><input name="join"  required="required" type="radio" value="I'm not Sure">I'm not Sure</label>
+                                                    <label for="exampleInputSubject">
+                                                     
+                                                            When are you likely to join us after attending the trial class? *
+                                                           
+                                                    </label>
+                                                    <br>
+                                                    <label> 
+                                                        <div class="form-group">
+                                                            <input name="join" required="required" type="radio" checked="" value="As soon as possible" style="height: auto;"> As soon as possible
+                                                        </div>    
+                                                    </label>
+                                                   
+                                                    <label>
+                                                         <div class="form-group">
+                                                                <input name="join"  required="required" type="radio" value="Within 1 months" style="height: auto;"> Within 1 month
+                                                             </div>    
+                                                        </label>
+                                                   
+                                                    <label>
+                                                           <div class="form-group">
+                                                                <input name="join"  required="required" type="radio" value="Within 2 months" style="height: auto;"> Within 2 month
+                                                            </div>
+                                                    </label>
+                                                    <label>
+                                                        <div class="form-group">
+                                                            <input name="join"  required="required" type="radio" value="I'm not Sure" style="height: auto;"> I'm not Sure
+                                                        </div>    
+                                                    </label>
 
                                                 </div>
                                             </div>
