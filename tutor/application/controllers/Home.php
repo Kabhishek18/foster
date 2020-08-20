@@ -37,7 +37,6 @@ class Home extends CI_Controller {
 		$this->load->view('home/include/footer');
 	}
 
-
 	public function NotFound()
 	{
 		$this->load->view('home/include/header');
@@ -70,7 +69,6 @@ class Home extends CI_Controller {
 	}
 
 	//Dashboard
-
 	public function Dashboard()
 	{
 		$data = $this->session->user_account;
@@ -101,8 +99,7 @@ class Home extends CI_Controller {
 			redirect();
 		}
 	}
-
-
+	
 	//Logout
 	public function Logout()
 	{
@@ -569,7 +566,6 @@ class Home extends CI_Controller {
 		}
 	}
 
-
 	//offline
 	public function avail_offline()
 	{
@@ -582,7 +578,6 @@ class Home extends CI_Controller {
 			echo "Logout In Again";
 		}
 	}
-
 
 	//Online
 	public function avail_online()

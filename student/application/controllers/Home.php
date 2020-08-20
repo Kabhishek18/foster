@@ -350,7 +350,7 @@ class Home extends CI_Controller {
 			$var['batch_timestart']=$this->input->post("stime");
 			$var['batch_timeend'] = $var['batch_timestart'];
 
-			$var['batch_state'] = '0';
+			
 
 			$var['batch_name']=$this->input->post("name");
 			$var['batch_token'] =generateUUID();
@@ -364,7 +364,7 @@ class Home extends CI_Controller {
 
 			$var['batch_description'] = json_encode($dee); 
 			$var['batch_status'] = '0' ; 
-			$var['batch_state'] = '1' ;
+			$var['batch_state'] = '0';
 
 			$insert = $this->home_model->DemoForm($var);
 			if($insert) 
