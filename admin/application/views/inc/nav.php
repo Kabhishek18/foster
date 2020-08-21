@@ -47,7 +47,7 @@
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?=base_url()?>resource/admin/html/ltr/vertical-menu-template-dark/<?=base_url('dashboard')?>">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?=base_url()?>resource/html/ltr/vertical-menu-template-dark/<?=base_url('dashboard')?>">
                         
                         <h2 class="brand-text mb-0">Admin Panel</h2>
                     </a></li>

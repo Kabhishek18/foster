@@ -19,9 +19,9 @@
                             <div class="card bg-analytics text-white">
                                 <div class="card-content">
                                     <div class="card-body text-center">
-                                        <img src= "<?=base_url()?>admin/app-assets/images/elements/decore-left.png" class="img-left" alt="
+                                        <img src= "<?=base_url()?>resource/app-assets/images/elements/decore-left.png" class="img-left" alt="
                                                         card-img-left">
-                                        <img src= "<?=base_url()?>admin/app-assets/images/elements/decore-right.png" class="img-right" alt="
+                                        <img src= "<?=base_url()?>resource/app-assets/images/elements/decore-right.png" class="img-right" alt="
                                                      card-img-right">
                                         <div class="avatar avatar-xl bg-primary shadow mt-0">
                                             <div class="avatar-content">
@@ -333,16 +333,16 @@
                                                     <td class="p-1">
                                                         <ul class="list-unstyled users-list m-0  d-flex align-items-center">
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Vinnie Mostowy" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Elicia Rieske" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Julee Rossignol" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-10.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-10.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Darcey Nooner" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                         </ul>
                                                     </td>
@@ -362,13 +362,13 @@
                                                     <td class="p-1">
                                                         <ul class="list-unstyled users-list m-0  d-flex align-items-center">
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Trina Lynes" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-1.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-1.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Lilian Nenez" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-2.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-2.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Alberto Glotzbach" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-3.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-3.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                         </ul>
                                                     </td>
@@ -388,19 +388,19 @@
                                                     <td class="p-1">
                                                         <ul class="list-unstyled users-list m-0  d-flex align-items-center">
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Lai Lewandowski" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Elicia Rieske" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Darcey Nooner" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-8.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Julee Rossignol" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-10.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-10.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Jeffrey Gerondale" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-9.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-9.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                         </ul>
                                                     </td>
@@ -420,10 +420,10 @@
                                                     <td class="p-1">
                                                         <ul class="list-unstyled users-list m-0  d-flex align-items-center">
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Vinnie Mostowy" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                             <li data-toggle="tooltip" data-popup="tooltip-custom" data-placement="bottom" data-original-title="Elicia Rieske" class="avatar pull-up">
-                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>admin/app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="30" width="30">
+                                                                <img class="media-object rounded-circle" src= "<?=base_url()?>resource/app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="30" width="30">
                                                             </li>
                                                         </ul>
                                                     </td>
