@@ -10,6 +10,7 @@ class Home_model extends CI_Model
         $this->tutors   = 'tutors';
         $this->category   = 'categories';
         $this->course   = 'courses';
+        $this->batch   = 'batches';
     }
 
 
@@ -29,7 +30,6 @@ class Home_model extends CI_Model
 			return false;
 		}
 	}
-
 
 	public function CheckEmail($auth)
 	{
@@ -87,6 +87,18 @@ class Home_model extends CI_Model
         return !empty($result)?$result:false;
 	}
  	
+     //Get Active Tutor List
+    public function ListTutorActive()
+    {
+        $this->db->select('tutors.*');
+        $this->db->from('tutors');
+        $this->db->join('tutors_avail', 'tutors.users_id = tutors_avail.tutor_id');
+        $this->db->where("(tutors.users_status ='0' AND tutors_avail.avail_type='0')",NULL,FALSE);
+        $query = $this->db->get();
+        $result = $query->result_array();
+        return !empty($result)?$result:false;
+    }
+
 	public function ListCategory($id = '')
 	{
 		$this->db->select('*');
@@ -145,4 +157,46 @@ class Home_model extends CI_Model
         $update = $this->db->delete($this->course);
        return $update?true:false;
     }
+
+    public function ListBatch($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->batch);
+       
+        if($id){
+            $array = array('batch_id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $this->db->order_by('batch_start', 'desc');
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function ChangeBatch($reg)
+    {
+        if ($reg['batch_id']) {
+            $this->db->where('batch_id',$reg['batch_id']);
+            $update = $this->db->update($this->batch,$reg);
+            return $update?true:false;
+        }
+        else{
+            $insert = $this->db->insert($this->batch,$reg);
+            return $insert?true:false;
+        }
+    }
+
+     public function DeleteBatch($reg)
+    {
+        $this->db->where('batch_id',$reg);
+        $update = $this->db->delete($this->batch);
+       return $update?true:false;
+    }
+
+
 }

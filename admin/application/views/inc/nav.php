@@ -66,6 +66,11 @@
                         </li>
                     </ul>
                 </li>
+                <li class=" navigation-header"><span>Batch</span>
+                </li>
+                <li class=" nav-item"><a href="<?=base_url()?>batch"><i class="feather icon-eye"></i><span class="menu-title" data-i18n="User">Batch</span></a>
+                </li>
+             
 
                 <li class=" navigation-header"><span>Categories, Courses</span>
                 </li>
@@ -87,9 +92,9 @@
                 <li class=" nav-item"><a href="<?=base_url()?>tutor"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">Tutor</span></a>
                 </li>
 
-                
+             
 
-               
+
             </ul>
         </div>
     </div>

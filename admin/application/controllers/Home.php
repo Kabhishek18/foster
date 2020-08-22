@@ -14,6 +14,7 @@ class Home extends CI_Controller {
 		}
 	}
 
+	//Login
 	public function index()
 	{
 		$data = $this->session->user_account;
@@ -118,8 +119,6 @@ class Home extends CI_Controller {
 		}
 	}
 
-
-
 	//Tutor List
 	public function TutorList()
 	{
@@ -147,7 +146,6 @@ class Home extends CI_Controller {
 			redirect();
 		}
 	}
-
 
 	//Category List
 	public function CategoryList()
@@ -205,8 +203,7 @@ class Home extends CI_Controller {
 		}
 	}
 
-
-
+	//Course Add View
 	public function CourseAdd()
 	{
 		$data = $this->session->user_account;
@@ -243,6 +240,7 @@ class Home extends CI_Controller {
 		}
 	}
 
+	//Course Insert And Update
 	public function Courseinsert()
 	{
 		
@@ -322,12 +320,9 @@ class Home extends CI_Controller {
 		else{
 			redirect();
 		}
-
-
-
 	}
 
-
+	//Course Delete
 	public function CourseDelete()
 	{
 		$url= $this->uri->segment(3,0); 
@@ -341,14 +336,143 @@ class Home extends CI_Controller {
 			redirect('course');
 		
 		}
-
-	
-
 	}
 
+	//Batch List
+	public function BatchList()
+	{
+		$data = $this->session->user_account;
+		if($data){	
+
+				if ($data['users_status']==0) {
+
+					$var['datalist'] = $this->home_model->ListBatch();
+					$this->load->view('inc/header',$data);
+					$this->load->view('batchlist',$var);
+					$this->load->view('inc/foottile');
+					$this->load->view('inc/footer');
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Batch Add View
+	public function BatchAdd()
+	{
+		$data = $this->session->user_account;
+		if($data){	
+
+				if ($data['users_status']==0) {
+					$this->load->view('inc/header',$data);
+					$urlid = $this->uri->segment(3,0);
+
+					if($urlid){
+						//Update
+						$var['datalist'] = $this->home_model->ListBatch($urlid);
+						$this->load->view('batchadd',$var);
+					}else{
+						//Add
+						$var['datalist'] = NULL;
+						$this->load->view('batchadd',$var);
+					}
+
+					$this->load->view('inc/foottile');
+					$this->load->view('inc/footer');
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Batch Insert And Update
+	public function Batchinsert()
+	{
+		
+		$data = $this->session->user_account;
+		if($data){	
+
+				if ($data['users_status']==0) {
+					
+					$reg['batch_id']=$this->input->post("batch_id");
+					$reg['batch_name']=$this->input->post("batch_name");
+					$reg['batch_token']=$this->input->post("batch_token");
+					$reg['batch_start']=$this->input->post("batch_start");
+					$reg['batch_end']=$this->input->post("batch_end");
+					$reg['batch_timestart']=$this->input->post("batch_timestart");
+					$reg['batch_timeend']=$this->input->post("batch_timeend");
+					$reg['batch_type']=$this->input->post("batch_type");
+					$reg['batch_status']=$this->input->post("batch_status");
+			
+					if ($reg['batch_id'] == "") {
+						$reg['batch_token']=generateUUID();
+					}
+						
+
+					
+						
+							$insert = $this->home_model->ChangeBatch($reg);
+							if ($insert) {
+								$this->session->set_flashdata('success', 'Successfully Done');
+								redirect($_SERVER['HTTP_REFERER']);
+							}
+							else{
+								$this->session->set_flashdata('Warning', 'Something Misfortune Happen');
+								redirect($_SERVER['HTTP_REFERER']);	
+							}
+						
 
 
 
+
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Batch
+	public function BatchDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->home_model->DeleteBatch($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect('batch');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect('batch');
+		
+		}
+	}
 
 
 }

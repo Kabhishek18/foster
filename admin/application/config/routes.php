@@ -21,7 +21,10 @@ $route['student'] ='home/StudentList';
 $route['tutor'] ='home/TutorList';
 $route['category'] ='home/CategoryList';
 
+//Batch
+$route['batch'] ='home/BatchList';
+$route['batch/edit/(:num)'] ='home/BatchAdd';
+$route['batch/add'] ='home/BatchAdd';
 
+//Course
 $route['course'] ='home/CourseList';
-$route['course/edit/(:num)'] ='home/CourseAdd';
-$route['course/add'] ='home/CourseAdd';

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 22, 2020 at 06:11 PM
+-- Generation Time: Aug 23, 2020 at 02:24 AM
 -- Server version: 8.0.21-0ubuntu0.20.04.4
 -- PHP Version: 7.4.9
 
@@ -59,23 +59,25 @@ CREATE TABLE `batches` (
   `batch_name` text COLLATE utf8mb4_general_ci NOT NULL,
   `batch_token` text COLLATE utf8mb4_general_ci NOT NULL,
   `batch_start` date NOT NULL,
+  `batch_type` text COLLATE utf8mb4_general_ci NOT NULL,
   `batch_end` date NOT NULL,
   `tutor_id` text COLLATE utf8mb4_general_ci NOT NULL,
-  `user_id` text COLLATE utf8mb4_general_ci NOT NULL,
+  `user_id` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `batch_description` text COLLATE utf8mb4_general_ci NOT NULL,
   `batch_timestart` time NOT NULL,
   `batch_timeend` time NOT NULL,
   `batch_status` enum('0','1') COLLATE utf8mb4_general_ci NOT NULL,
-  `batch_state` enum('0','1','2','3') COLLATE utf8mb4_general_ci NOT NULL,
-  `batch_cancel` enum('0','1','2','3') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+  `batch_cancel` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `batches`
 --
 
-INSERT INTO `batches` (`batch_id`, `batch_name`, `batch_token`, `batch_start`, `batch_end`, `tutor_id`, `user_id`, `batch_description`, `batch_timestart`, `batch_timeend`, `batch_status`, `batch_state`, `batch_cancel`) VALUES
-(1, 'dsdas', 'd4b7fdc9-8092-a582-50fc-c36f8eb02e6e', '2020-08-20', '2020-08-20', '', '1', '{\"email\":\"789123\",\"plan\":\"asd\",\"join\":\"As soon as possible\",\"message\":\"sad\"}', '01:00:00', '01:00:00', '0', '0', NULL);
+INSERT INTO `batches` (`batch_id`, `batch_name`, `batch_token`, `batch_start`, `batch_type`, `batch_end`, `tutor_id`, `user_id`, `batch_description`, `batch_timestart`, `batch_timeend`, `batch_status`, `batch_cancel`) VALUES
+(1, 'Kumar Abhishek', '3b129860-b751-ed38-5593-3549105cc10e', '2020-08-20', 'Demo (45 min free trial)', '2020-08-20', '', '1', '{\"number\":\"8795142536\",\"email\":\"Kabhishek18@gmail.com\",\"plan\":\"1 Month\",\"join\":\"As soon as possible\",\"message\":\"THank\'s For Sharing Detail\"}', '01:00:00', '01:00:00', '0', NULL),
+(3, 'Kumar Abhishek', '3b129860-b751-ed38-5593-3549105cc10e', '2020-08-26', 'Demo (45 min free trial)', '2020-08-26', '', '1', '{\"number\":\"8795142536\",\"email\":\"Kabhishek18@gmail.com\",\"plan\":\"1 Month\",\"join\":\"As soon as possible\",\"message\":\"THank\'s For Sharing Detail\"}', '01:00:00', '01:00:00', '0', NULL),
+(4, 'Kumar Abhishek', '3b129860-b751-ed38-5593-3549105cc10e', '2020-08-31', 'Demo (45 min free trial)', '2020-08-31', '', '1', '{\"number\":\"8795142536\",\"email\":\"Kabhishek18@gmail.com\",\"plan\":\"1 Month\",\"join\":\"As soon as possible\",\"message\":\"THank\'s For Sharing Detail\"}', '06:00:00', '06:00:00', '0', NULL);
 
 -- --------------------------------------------------------
 
@@ -213,7 +215,8 @@ CREATE TABLE `tutors` (
 --
 
 INSERT INTO `tutors` (`users_id`, `users_name`, `users_email`, `users_email_verify`, `users_image`, `users_mobile`, `users_bankaccount`, `users_pancard`, `users_aadhar`, `users_password`, `users_token`, `users_type`, `users_account`, `users_status`) VALUES
-(1, 'Abhishek', 'kabhishek18@gmail.com', '0', 'user-0411.jpg', '7053948103', '{\"account_number\":\"789456132132\",\"account_name\":\"Kumar Abhishek\",\"ifsc_code\":\"WES10054\"}', 'Screenshot_from_2020-05-05_17-04-54.png', '', 'e10adc3949ba59abbe56e057f20f883e', 'c5ad13b2-8cff-d75b-ce1f-ef6c0d357ac7', '0', '0', '0');
+(1, 'Abhishek', 'kabhishek18@gmail.com', '0', 'user-0411.jpg', '7053948103', '{\"account_number\":\"789456132132\",\"account_name\":\"Kumar Abhishek\",\"ifsc_code\":\"WES10054\"}', 'Screenshot_from_2020-05-05_17-04-54.png', '', 'e10adc3949ba59abbe56e057f20f883e', 'c5ad13b2-8cff-d75b-ce1f-ef6c0d357ac7', '0', '0', '0'),
+(2, 'Kumar', 'test@gmail.com', '0', 'user-0411.jpg', '7053948103', '{\"account_number\":\"789456132132\",\"account_name\":\"Kumar Abhishek\",\"ifsc_code\":\"WES10054\"}', 'Screenshot_from_2020-05-05_17-04-54.png', '', 'e10adc3949ba59abbe56e057f20f883e', 'c5ad13b2-8cff-d75b-ce1f-ef6c0d357ac7', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -236,7 +239,8 @@ CREATE TABLE `tutors_avail` (
 --
 
 INSERT INTO `tutors_avail` (`id`, `tutor_id`, `avail_type`, `start_date`, `end_date`, `start_time`, `end_time`) VALUES
-(1, 1, '1', '2020-08-27', '2020-08-30', '01:26:00', '04:26:00');
+(1, 1, '0', '2020-08-27', '2020-08-30', '01:26:00', '04:26:00'),
+(2, 2, '0', '2020-08-27', '2020-08-30', '01:26:00', '04:26:00');
 
 -- --------------------------------------------------------
 
@@ -262,8 +266,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`users_id`, `users_name`, `users_email`, `users_email_verify`, `users_image`, `users_password`, `users_token`, `users_type`, `users_account`, `users_status`) VALUES
-(1, 'Kumar ', 'kabhishek18@gmail.com', '0', '', 'e10adc3949ba59abbe56e057f20f883e', '4364a9e6-ae39-daec-09cc-d5911b8f7f85', '0', '0', '0'),
-(2, 'TEst', 'test@gmail.com', '0', '', 'e10adc3949ba59abbe56e057f20f883e\r\n', NULL, '0', '0', '0');
+(1, 'Abhishek', 'kabhishek18@gmail.com', '0', '', 'e10adc3949ba59abbe56e057f20f883e', 'e1ef5301-1296-82d9-20fe-f746efdfb046', '0', '0', '0');
 
 --
 -- Indexes for dumped tables
@@ -325,7 +328,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `batches`
 --
 ALTER TABLE `batches`
-  MODIFY `batch_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `batch_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -355,13 +358,13 @@ ALTER TABLE `slot`
 -- AUTO_INCREMENT for table `tutors`
 --
 ALTER TABLE `tutors`
-  MODIFY `users_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `users_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tutors_avail`
 --
 ALTER TABLE `tutors_avail`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

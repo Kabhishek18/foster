@@ -108,7 +108,7 @@ class Home extends CI_Controller {
 			$this->load->view('status');
 			$this->load->view('home/include/footer');
 			}
-
+		else{	
 		$auth['users_token']=generateUUID();	
 		$auth['users_account']=1;
 
@@ -247,6 +247,7 @@ class Home extends CI_Controller {
 
 		}
 	}
+	}
 
 	//Email Verfication
 	public function EmailVerification()
@@ -357,14 +358,15 @@ class Home extends CI_Controller {
 
 			//dee
 
-			$dee['email']=$this->input->post("number");
+			$dee['number']=$this->input->post("number");
+			$dee['email']=$this->input->post("email");
 			$dee['plan']=$this->input->post("plan");
 			$dee['join']=$this->input->post("join");
 			$dee['message']=$this->input->post("message");
 
 			$var['batch_description'] = json_encode($dee); 
 			$var['batch_status'] = '0' ; 
-			$var['batch_state'] = '0';
+			$var['batch_type'] = 'Demo (45 min free trial)' ; 
 
 			$insert = $this->home_model->DemoForm($var);
 			if($insert) 
