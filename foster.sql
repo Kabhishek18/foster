@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 21, 2020 at 12:28 AM
+-- Generation Time: Aug 22, 2020 at 06:11 PM
 -- Server version: 8.0.21-0ubuntu0.20.04.4
 -- PHP Version: 7.4.9
 
@@ -21,6 +21,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `foster`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `users_id` int NOT NULL DEFAULT '0',
+  `users_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `users_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `users_email_verify` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '1',
+  `users_image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `users_password` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `users_token` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `users_type` enum('0','1','2','3') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `users_account` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `users_status` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`users_id`, `users_name`, `users_email`, `users_email_verify`, `users_image`, `users_password`, `users_token`, `users_type`, `users_account`, `users_status`) VALUES
+(1, 'Kumar ', 'kabhishek18@gmail.com', '0', '', 'e10adc3949ba59abbe56e057f20f883e', '4364a9e6-ae39-daec-09cc-d5911b8f7f85', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -87,7 +113,7 @@ CREATE TABLE `courses` (
   `course_id` int NOT NULL,
   `course_parent_id` int NOT NULL,
   `course_name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `course_image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `course_image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `regular_price` int DEFAULT NULL,
   `sale_price` int NOT NULL,
   `course_type` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -110,7 +136,7 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`course_id`, `course_parent_id`, `course_name`, `course_image`, `regular_price`, `sale_price`, `course_type`, `course_hours`, `course_session`, `course_tenure`, `course_timing`, `course_complimentary`, `course_access`, `course_information`, `course_short_desc`, `course_description`, `course_status`, `course_created`, `course_modified`) VALUES
-(1, 1, 'Universal Program', '', NULL, 7499, 'Classroom / Online Group', '24+', '12', '4-6 weeks', 'Weekdays or Weekends with a fixed schedule – click here for available slots', '3 (Near Exam Date)', '3 months effective joining date', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.\r\nThis program enables participants to gain IELTS structural understanding along with useful strategies & tips to score a higher Band.\r\n*1x 1 session is conducted over wide-ranging video calling platforms.\r\n* It is highly recommended that you have a broadband connection for uninterrupted live streaming for online learning.', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.', 'Key Takeaways \r\n    • Band 9 answer structure for the Speaking module and strategies to prolong task response  \r\n    • Appropriate Lexical Resource (vocabulary) along with accurate idioms and phrases usage\r\n    • Excellent strategies to solve each section of the Listening module to achieve superior band\r\n    • Section-wise strategies & tips to score greater band in the Reading module\r\n    • Abundance of practice material for continuous preparation\r\n    • 1x1 writing evaluation and Speaking assessment/practice\r\n    • Band 9 answer structure for Writing Task 1 & Task 2\r\n    • Sessions availability on weekdays and on weekends\r\n    • Correct pronunciation of important words\r\n    • Unlimited mock tests \r\n    • Personal Attention\r\n    • Flexible schedule', '0', '2020-08-07', '2020-08-07 15:31:00'),
+(1, 1, 'Universal Program', '', NULL, 7499, 'Classroom / Online Group', '24+', '12', '4-6 weeks', 'Weekdays or Weekends with a fixed schedule – click here for available slots', '3 (Near Exam Date)', '3 months effective joining date', '<p>Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking. This program enables participants to gain IELTS structural understanding along with useful strategies &amp; tips to score a higher Band. *1x 1 session is conducted over wide-ranging video calling platforms. * It is highly recommended that you have a broadband connection for uninterrupted live streaming for online learning.</p>\r\n', '<p>Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.</p>\r\n', '<p>Key Takeaways &bull; Band 9 answer structure for the Speaking module and strategies to prolong task response&nbsp;&nbsp; &bull; Appropriate Lexical Resource (vocabulary) along with accurate idioms and phrases usage &bull; Excellent strategies to solve each section of the Listening module to achieve superior band &bull; Section-wise strategies &amp; tips to score greater band in the Reading module &bull; Abundance of practice material for continuous preparation &bull; 1x1 writing evaluation and Speaking assessment/practice &bull; Band 9 answer structure for Writing Task 1 &amp; Task 2 &bull; Sessions availability on weekdays and on weekends &bull; Correct pronunciation of important words &bull; Unlimited mock tests &bull; Personal Attention &bull; Flexible schedule</p>\r\n', '0', '2020-08-22', '2020-08-07 15:31:00'),
 (2, 1, 'Universal Program', '', NULL, 10999, 'Online Personal', '24+', '12', '4-6 weeks', 'Flexible', '3 (Near Exam Date)', '3 months effective joining date', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.\r\nThis program enables participants to gain IELTS structural understanding along with useful strategies & tips to score a higher Band.\r\n*1x 1 session is conducted over wide-ranging video calling platforms.\r\n* It is highly recommended that you have a broadband connection for uninterrupted live streaming for online learning.', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.', 'Key Takeaways \r\n    • Band 9 answer structure for the Speaking module and strategies to prolong task response  \r\n    • Appropriate Lexical Resource (vocabulary) along with accurate idioms and phrases usage\r\n    • Excellent strategies to solve each section of the Listening module to achieve superior band\r\n    • Section-wise strategies & tips to score greater band in the Reading module\r\n    • Abundance of practice material for continuous preparation\r\n    • 1x1 writing evaluation and Speaking assessment/practice\r\n    • Band 9 answer structure for Writing Task 1 & Task 2\r\n    • Sessions availability on weekdays and on weekends\r\n    • Correct pronunciation of important words\r\n    • Unlimited mock tests \r\n    • Personal Attention\r\n    • Flexible schedule', '0', '2020-08-07', '2020-08-07 15:31:00'),
 (3, 1, 'Supreme Program', '', NULL, 14999, 'Online Personal', '36+', '18', '6-8 weeks', 'Flexible', '4 (Near Exam Date)', '3 months effective joining date', 'Classroom/Online thorough program, covering parts of speech, grammar, and other basic necessities to enable average students to achieve their desired band.*1x 1 session is conducted over wide-ranging video calling platforms.\r\n* It is highly recommended that you have a broadband connection for uninterrupted live streaming.', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.', 'Key Takeaways \r\n    • Band 9 answer structure for the Speaking module and strategies to prolong task response  \r\n    • Appropriate Lexical Resource (vocabulary) along with accurate idioms and phrases usage\r\n    • Excellent strategies to solve each section of the Listening module to achieve superior band\r\n    • Section-wise strategies & tips to score greater band in the Reading module\r\n    • Abundance of practice material for continuous preparation\r\n    • 1x1 writing evaluation and Speaking assessment/practice\r\n    • Band 9 answer structure for Writing Task 1 & Task 2\r\n    • Sessions availability on weekdays and on weekends\r\n    • Correct pronunciation of important words\r\n    • Unlimited mock tests \r\n    • Personal Attention\r\n    • Flexible schedule', '0', '2020-08-07', '2020-08-07 15:31:00'),
 (4, 1, 'Supreme Program', '', NULL, 12499, 'Classroom / Online Group', '36+', '18', '6-8 weeks', 'Weekdays or Weekends with a fixed schedule – click here for available slots', '4 (Near Exam Date)', '3 months effective joining date', 'Classroom/Online thorough program, covering parts of speech, grammar, and other basic necessities to enable average students to achieve their desired band.*1x 1 session is conducted over wide-ranging video calling platforms.\r\n* It is highly recommended that you have a broadband connection for uninterrupted live streaming.', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.', 'Key Takeaways \r\n    • Band 9 answer structure for the Speaking module and strategies to prolong task response  \r\n    • Appropriate Lexical Resource (vocabulary) along with accurate idioms and phrases usage\r\n    • Excellent strategies to solve each section of the Listening module to achieve superior band\r\n    • Section-wise strategies & tips to score greater band in the Reading module\r\n    • Abundance of practice material for continuous preparation\r\n    • 1x1 writing evaluation and Speaking assessment/practice\r\n    • Band 9 answer structure for Writing Task 1 & Task 2\r\n    • Sessions availability on weekdays and on weekends\r\n    • Correct pronunciation of important words\r\n    • Unlimited mock tests \r\n    • Personal Attention\r\n    • Flexible schedule', '0', '2020-08-07', '2020-08-07 15:31:00'),
@@ -118,6 +144,26 @@ INSERT INTO `courses` (`course_id`, `course_parent_id`, `course_name`, `course_i
 (6, 1, 'Rapid Program', '', NULL, 5499, 'Online Personal', '12+', '6+', '1-2 weeks', 'Weekdays or Weekends with a fixed schedule – click here for available slots', '2 (Near Exam Date)', '1 month effective joining date (Limited Mock Tests)', 'Classroom/Online thorough program, covering parts of speech, grammar, and other basic necessities to enable average students to achieve their desired band.*1x 1 session is conducted over wide-ranging video calling platforms.\r\n* It is highly recommended that you have a broadband connection for uninterrupted live streaming.', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.', 'Key Takeaways \r\n    • Band 9 answer structure for the Speaking module and strategies to prolong task response  \r\n    • Appropriate Lexical Resource (vocabulary) along with accurate idioms and phrases usage\r\n    • Excellent strategies to solve each section of the Listening module to achieve superior band\r\n    • Section-wise strategies & tips to score greater band in the Reading module\r\n    • Abundance of practice material for continuous preparation\r\n    • 1x1 writing evaluation and Speaking assessment/practice\r\n    • Band 9 answer structure for Writing Task 1 & Task 2\r\n    • Sessions availability on weekdays and on weekends\r\n    • Correct pronunciation of important words\r\n    • Unlimited mock tests \r\n    • Personal Attention\r\n    • Flexible schedule', '0', '2020-08-07', '2020-08-07 15:31:00'),
 (7, 2, 'Universal Program', '', NULL, 7499, 'Classroom / Online Group', '24+', '12', '4-6 weeks', 'Weekdays or Weekends with a fixed schedule – click here for available slots', '3 (Near Exam Date)', '3 months effective joining date', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.\r\nThis program enables participants to gain IELTS structural understanding along with useful strategies & tips to score a higher Band.\r\n*1x 1 session is conducted over wide-ranging video calling platforms.\r\n* It is highly recommended that you have a broadband connection for uninterrupted live streaming for online learning.', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.', 'Key Takeaways \r\n    • Band 9 answer structure for the Speaking module and strategies to prolong task response  \r\n    • Appropriate Lexical Resource (vocabulary) along with accurate idioms and phrases usage\r\n    • Excellent strategies to solve each section of the Listening module to achieve superior band\r\n    • Section-wise strategies & tips to score greater band in the Reading module\r\n    • Abundance of practice material for continuous preparation\r\n    • 1x1 writing evaluation and Speaking assessment/practice\r\n    • Band 9 answer structure for Writing Task 1 & Task 2\r\n    • Sessions availability on weekdays and on weekends\r\n    • Correct pronunciation of important words\r\n    • Unlimited mock tests \r\n    • Personal Attention\r\n    • Flexible schedule', '0', '2020-08-07', '2020-08-07 15:31:00'),
 (8, 2, 'Universal Program', '', NULL, 10999, 'Online Personal', '24+', '12', '4-6 weeks', 'Flexible', '3 (Near Exam Date)', '3 months effective joining date', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.\r\nThis program enables participants to gain IELTS structural understanding along with useful strategies & tips to score a higher Band.\r\n*1x 1 session is conducted over wide-ranging video calling platforms.\r\n* It is highly recommended that you have a broadband connection for uninterrupted live streaming for online learning.', 'Classroom/Online program covering all 4 Modules i.e. Listening, Reading, Writing, and Speaking.', 'Key Takeaways \r\n    • Band 9 answer structure for the Speaking module and strategies to prolong task response  \r\n    • Appropriate Lexical Resource (vocabulary) along with accurate idioms and phrases usage\r\n    • Excellent strategies to solve each section of the Listening module to achieve superior band\r\n    • Section-wise strategies & tips to score greater band in the Reading module\r\n    • Abundance of practice material for continuous preparation\r\n    • 1x1 writing evaluation and Speaking assessment/practice\r\n    • Band 9 answer structure for Writing Task 1 & Task 2\r\n    • Sessions availability on weekdays and on weekends\r\n    • Correct pronunciation of important words\r\n    • Unlimited mock tests \r\n    • Personal Attention\r\n    • Flexible schedule', '0', '2020-08-07', '2020-08-07 15:31:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int NOT NULL,
+  `student_id` int NOT NULL,
+  `order_amount` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `order_detail` text COLLATE utf8mb4_general_ci NOT NULL,
+  `order_bill` text COLLATE utf8mb4_general_ci NOT NULL,
+  `order_ship` text COLLATE utf8mb4_general_ci NOT NULL,
+  `order_note` text COLLATE utf8mb4_general_ci NOT NULL,
+  `order_token` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `order_status` enum('0','1') COLLATE utf8mb4_general_ci NOT NULL,
+  `order_created` datetime NOT NULL,
+  `order_modified` timestamp NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -216,7 +262,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`users_id`, `users_name`, `users_email`, `users_email_verify`, `users_image`, `users_password`, `users_token`, `users_type`, `users_account`, `users_status`) VALUES
-(1, 'Kumar ', 'kabhishek18@gmail.com', '0', '', 'e10adc3949ba59abbe56e057f20f883e', '4364a9e6-ae39-daec-09cc-d5911b8f7f85', '0', '0', '0');
+(1, 'Kumar ', 'kabhishek18@gmail.com', '0', '', 'e10adc3949ba59abbe56e057f20f883e', '4364a9e6-ae39-daec-09cc-d5911b8f7f85', '0', '0', '0'),
+(2, 'TEst', 'test@gmail.com', '0', '', 'e10adc3949ba59abbe56e057f20f883e\r\n', NULL, '0', '0', '0');
 
 --
 -- Indexes for dumped tables
@@ -239,6 +286,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`course_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `slot`
@@ -284,7 +337,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `course_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `course_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `slot`
@@ -308,7 +367,7 @@ ALTER TABLE `tutors_avail`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `users_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `users_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

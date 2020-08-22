@@ -12,6 +12,23 @@
                         <div class="card bg-authentication rounded-0 mb-0">
                             <div class="row m-0">
                                 <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
+                                     <?php if($this->session->flashdata('success')){ ?>
+
+                                            <div class="alert alert-success" role="alert">
+                                                                    <h4 class="alert-heading">Success</h4>
+                                                                    <p class="mb-0">
+                                                                        <?php echo $this->session->flashdata('success'); ?>
+                                                                    </p>
+                                                                </div>
+                                                               
+                                                 <?php }elseif($this->session->flashdata('warning')){ ?>  
+                                               <div class="alert alert-danger" role="alert">
+                                                                    <h4 class="alert-heading">Danger</h4>
+                                                                    <p class="mb-0">
+                                                                       <?php echo $this->session->flashdata('warning'); ?>
+                                                                    </p>
+                                                                </div>
+                                                <?php }?> 
                                     <img src= "<?=base_url()?>resource/app-assets/images/pages/login.png" alt="branding logo">
                                 </div>
                                 <div class="col-lg-6 col-12 p-0">

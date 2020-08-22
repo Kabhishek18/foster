@@ -18,3 +18,10 @@ $route['translate_uri_dashes'] = FALSE;
 //Dashboard
 $route['dashboard'] ='home/Dashboard';
 $route['student'] ='home/StudentList';
+$route['tutor'] ='home/TutorList';
+$route['category'] ='home/CategoryList';
+
+
+$route['course'] ='home/CourseList';
+$route['course/edit/(:num)'] ='home/CourseAdd';
+$route['course/add'] ='home/CourseAdd';

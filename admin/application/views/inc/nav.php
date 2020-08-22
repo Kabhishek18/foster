@@ -66,16 +66,28 @@
                         </li>
                     </ul>
                 </li>
-                <li class=" navigation-header"><span>Student</span>
+
+                <li class=" navigation-header"><span>Categories, Courses</span>
                 </li>
-                <li class=" nav-item"><a href="javascript:void(0)"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">Student</span></a>
+                <li class=" nav-item"><a href="<?=base_url()?>tutor"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Courses,Category</span></a>
                     <ul class="menu-content">
-                        <li ><a href="<?=base_url()?>student"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="List">List</span></a>
+                        <li><a href="<?=base_url()?>category"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Category</span></a>
                         </li>
-                        <li><a href="<?=base_url()?>user/useradd"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Add</span></a>
+                        <li><a href="<?=base_url()?>course"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Courses</span></a>
                         </li>
                     </ul>
                 </li>
+               
+                <li class=" navigation-header"><span>Student</span>
+                </li>
+                <li class=" nav-item"><a href="<?=base_url()?>student"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">Student</span></a>
+                </li>
+                <li class=" navigation-header"><span>Tutor</span>
+                </li>
+                <li class=" nav-item"><a href="<?=base_url()?>tutor"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">Tutor</span></a>
+                </li>
+
+                
 
                
             </ul>
