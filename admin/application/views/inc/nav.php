@@ -47,7 +47,7 @@
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?=base_url()?>resource/html/ltr/vertical-menu-template-dark/<?=base_url('dashboard')?>">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?=base_url('dashboard')?>">
                         
                         <h2 class="brand-text mb-0">Admin Panel</h2>
                     </a></li>
@@ -91,7 +91,10 @@
                 </li>
                 <li class=" nav-item"><a href="<?=base_url()?>tutor"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">Tutor</span></a>
                 </li>
-
+                 <li class=" navigation-header"><span>Order</span>
+                </li>
+                <li class=" nav-item"><a href="<?=base_url()?>order"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">Order</span></a>
+                </li>
              
 
 

@@ -84,12 +84,12 @@
                                                         <td><?=date('F,d Y:h:i:s',strtotime($items['category_modified']))?></td>
                                                         <td>
                                                             <span class="action-edit">
-                                                                <a href="<?=base_url()?>student/<?=$items['category_id']?>" onclick="return confirm('Are you want to Inactive it?')">
+                                                                <a href="<?=base_url()?>category/edit/<?=$items['category_id']?>">
                                                                  <i class="feather icon-edit"></i>
                                                                 </a>
                                                             </span>
                                                             <span class="action-delete">
-                                                                <a href="<?=base_url()?>student/<?=$items['category_id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
+                                                                <a href="<?=base_url()?>home/CategoryDelete/<?=$items['category_id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
                                                                     <i class="feather icon-trash"></i>
                                                                 </a>
                                                             </span>

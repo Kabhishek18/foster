@@ -119,6 +119,26 @@ class Home_model extends CI_Model
 	}
 
 
+    public function ChangeCategory($reg)
+    {   
+        if ($reg['category_id']) {
+            $this->db->where('category_id',$reg['category_id']);
+            $update = $this->db->update($this->category,$reg);
+            return $update?true:false;
+        }
+        else{
+            $insert = $this->db->insert($this->category,$reg);
+            return $insert?true:false;
+        }
+    }
+
+    public function DeleteCategory($reg)
+    {
+        $this->db->where('category_id',$reg);
+        $update = $this->db->delete($this->category);
+       return $update?true:false;
+    }
+
 	public function ListCourse($id = '')
 	{
 		$this->db->select('*');

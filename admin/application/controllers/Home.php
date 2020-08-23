@@ -175,7 +175,112 @@ class Home extends CI_Controller {
 		}
 	}
 
-	//Category List
+
+	//Course Add View
+	public function CategoryAdd()
+	{
+		$data = $this->session->user_account;
+		if($data){	
+
+				if ($data['users_status']==0) {
+					$this->load->view('inc/header',$data);
+					$urlid = $this->uri->segment(3,0);
+
+					if($urlid){
+						//Update
+						$var['datalist'] = $this->home_model->ListCategory($urlid);
+						$this->load->view('categoryadd',$var);
+					}else{
+						//Add
+						$var['datalist'] = NULL;
+						$this->load->view('categoryadd',$var);
+					}
+
+					$this->load->view('inc/foottile');
+					$this->load->view('inc/footer');
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Insert And Update
+	public function Categoryinsert()
+	{
+		
+		$data = $this->session->user_account;
+		if($data){	
+
+				if ($data['users_status']==0) {
+					
+					$reg['category_id']=$this->input->post("category_id");
+					$reg['category_name']=$this->input->post("category_name");
+					$reg['category_description']=$this->input->post("category_description");
+					$reg['category_status']=$this->input->post("category_status");
+			
+					if ($reg['category_id'] == "") {
+						$reg['category_created']=date('Y-m-d');
+					}
+						$reg['category_modified']= date('Y-m-d H:i:s');
+
+					
+					
+						
+							$insert = $this->home_model->ChangeCategory($reg);
+							if ($insert) {
+								$this->session->set_flashdata('success', 'Successfully Done');
+								redirect($_SERVER['HTTP_REFERER']);
+							}
+							else{
+								$this->session->set_flashdata('Warning', 'Something Misfortune Happen');
+								redirect($_SERVER['HTTP_REFERER']);	
+							}
+						
+					
+
+
+
+
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Delete
+	public function CategoryDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->home_model->DeleteCategory($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect('category');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect('category');
+		
+		}
+	}
+	//Course List
 	public function CourseList()
 	{
 		$data = $this->session->user_account;

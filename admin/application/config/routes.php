@@ -19,12 +19,21 @@ $route['translate_uri_dashes'] = FALSE;
 $route['dashboard'] ='home/Dashboard';
 $route['student'] ='home/StudentList';
 $route['tutor'] ='home/TutorList';
-$route['category'] ='home/CategoryList';
 
 //Batch
 $route['batch'] ='home/BatchList';
 $route['batch/edit/(:num)'] ='home/BatchAdd';
 $route['batch/add'] ='home/BatchAdd';
 
+//Category
+$route['category'] ='home/CategoryList';
+$route['category/edit/(:num)'] ='home/CategoryAdd';
+$route['category/add'] ='home/CategoryAdd';
+
 //Course
 $route['course'] ='home/CourseList';
+$route['course/edit/(:num)'] ='home/CourseAdd';
+$route['course/add'] ='home/CourseAdd';
+
+//Order
+$route['order'] ='home/OrderList';
