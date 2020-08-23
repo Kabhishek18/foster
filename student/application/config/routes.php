@@ -18,11 +18,11 @@ $route['about'] = 'home/About';
 
 //Home
 $route['dashboard'] = 'home/Dashboard';
+$route['mycourse'] = 'home/MyCourse';
 $route['verify/:any/:any/:any'] = 'home/EmailVerification';
 
 
 //Course
-$route['']
 $route['course/:num/:any'] = 'cart/index';
 $route['course-detail/:num/:any'] = 'cart/CourseDetail';
 

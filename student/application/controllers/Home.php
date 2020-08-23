@@ -23,7 +23,6 @@ class Home extends CI_Controller {
 		$this->load->view('home/include/nav');
 		$this->load->view('home/home');
 		$this->load->view('home/include/footer');
-
 	}
 
 	//About Page
@@ -33,14 +32,12 @@ class Home extends CI_Controller {
 		$this->load->view('home/include/nav');
 		$this->load->view('home/about');
 		$this->load->view('home/include/footer');
-
 	}
 
 
 	public function NotFound()
 	{
 		$this->load->view('404');
-
 	}
 
 	public function Authentication()
@@ -280,8 +277,7 @@ class Home extends CI_Controller {
 			$this->session->set_flashdata('error', '<span>Sorry, Verification Failed</span>');
 			$this->load->view('status');
 			$this->load->view('home/include/footer');
-		}
-				
+		}			
 	}
 	//Resend Email
 	public function ResendEmailVerification()
@@ -340,13 +336,11 @@ class Home extends CI_Controller {
 
 	public function Scheduler()
 	{
-		
-		
-			$slot = $this->home_model->Get_Slot('1');
-			$this->load->view('home/include/header');
-			$this->load->view('home/include/nav');
-			$this->load->view('home/scheduler',$slot);
-			$this->load->view('home/include/footer');
+		$slot = $this->home_model->Get_Slot('1');
+		$this->load->view('home/include/header');
+		$this->load->view('home/include/nav');
+		$this->load->view('home/scheduler',$slot);
+		$this->load->view('home/include/footer');
 	}
 
 	function SchedulerData()
@@ -396,11 +390,40 @@ class Home extends CI_Controller {
 			$this->session->set_flashdata('error', ' Already Receieved. Demo Class Assigned !!! ');
 				redirect('scheduler');	
 		}	
-
 	}
 
 
-
+	public function MyCourse()
+	{
+		$data= $this->session->user_account;
+		if($data){	
+			if ($data['users_email_verify']==0) {
+			
+				if ($data['users_status']==0) {
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav',$data);
+					$this->load->view('home/mycourse');
+					$this->load->view('home/include/dash_footer');
+				}
+				else{
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav');
+					$this->session->set_flashdata('error', '<span style="color:red">Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator</span>');
+					$this->load->view('status');
+					$this->load->view('home/include/dash_footer');	
+				}
+			}else{
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav');
+					$this->session->set_flashdata('success', '<span style="color:red">Sorry, Your Account is Not Verified </span>');
+					$this->load->view('verify');
+					$this->load->view('home/include/dash_footer');
+			}
+		}
+		else{
+			redirect();
+		}
+	}
 
 
 

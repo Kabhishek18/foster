@@ -37,6 +37,8 @@ class Cart extends CI_Controller {
 		}
 	}
 
+	
+
 	//CourseDetail
 	public function CourseDetail()
 	{
@@ -122,6 +124,6 @@ class Cart extends CI_Controller {
 		//return respone
 		redirect('cart');
 	}
-
+	
 
 }
