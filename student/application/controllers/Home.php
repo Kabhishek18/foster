@@ -26,6 +26,17 @@ class Home extends CI_Controller {
 
 	}
 
+	//About Page
+	public function About()
+	{
+		$this->load->view('home/include/header');
+		$this->load->view('home/include/nav');
+		$this->load->view('home/about');
+		$this->load->view('home/include/footer');
+
+	}
+
+
 	public function NotFound()
 	{
 		$this->load->view('404');

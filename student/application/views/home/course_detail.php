@@ -9,30 +9,11 @@
 							<div class="cs_ins_container">
 								<div class="cs_instructor">
 									<ul class="cs_instrct_list float-left mb0">
-										<li class="list-inline-item"><img class="thumb" src="<?=base_url()?>foster/images/team/4.png" alt="4.png"></li>
 										<li class="list-inline-item"><a class="color-white" href="#"><?=$course_type?></a></li>
 										<li class="list-inline-item"><a class="color-white" href="#">Last updated <?=date('F,d y',strtotime($course_modified))?></a></li>
 									</ul>
 								</div>
-								<h3 class="cs_title color-white"><?=$course_name?></h3>
-								<ul class="cs_review_seller">
-									<li class="list-inline-item"><a class="color-white" href="#"><span>Best Seller</span></a></li>
-									<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-									<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-									<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-									<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-									<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-									<li class="list-inline-item"><a class="color-white" href="#">4.5 (11,382 Ratings)</a></li>
-								</ul>
-								<ul class="cs_review_enroll">
-									<li class="list-inline-item"><a class="color-white" href="#"><span class="flaticon-profile"></span> 57,869 students enrolled</a></li>
-									<li class="list-inline-item"><a class="color-white" href="#"><span class="flaticon-comment"></span> 25 Review</a></li>
-								</ul>
-								<ul class="cs_watch_list float-right mb0">
-								
-									<li class="list-inline-item"><a class="color-white" href="<?=current_url()?>"><span class="flaticon-share"> Share</span></a></li>
-
-								</ul>
+								<h1 class=" color-white"><?=$course_name?></h1>
 							</div>
 						</div>
 					</div>
@@ -188,157 +169,6 @@
 									</div>
 								</div>
 					
-								<div class="cs_row_five">
-									<div class="student_feedback_container b0p0">
-										<h4 class="aii_title">Course Rating</h4>
-										<div class="s_feeback_content">
-									        <ul class="skills">
-									        	<li class="list-inline-item">Stars 5</li>
-									            <li class="list-inline-item progressbar1" data-width="84" data-target="100">%84</li>
-									        </ul>
-									        <ul class="skills">
-									        	<li class="list-inline-item">Stars 4</li>
-									            <li class="list-inline-item progressbar2" data-width="9" data-target="100">%9</li>
-									        </ul>
-									        <ul class="skills">
-									        	<li class="list-inline-item">Stars 3</li>
-									            <li class="list-inline-item progressbar3" data-width="3" data-target="100">%3</li>
-									        </ul>
-									        <ul class="skills">
-									        	<li class="list-inline-item">Stars 2</li>
-									            <li class="list-inline-item progressbar4" data-width="1" data-target="100">%1</li>
-									        </ul>
-									        <ul class="skills">
-									        	<li class="list-inline-item">Stars 1</li>
-									            <li class="list-inline-item progressbar5" data-width="2" data-target="100">%2</li>
-									        </ul>
-										</div>
-										<div class="aii_average_review text-center">
-											<div class="av_content">
-												<h2>4.5</h2>
-												<ul class="aii_rive_list mb0">
-													<li class="list-inline-item"><i class="fa fa-star"></i></li>
-													<li class="list-inline-item"><i class="fa fa-star"></i></li>
-													<li class="list-inline-item"><i class="fa fa-star"></i></li>
-													<li class="list-inline-item"><i class="fa fa-star"></i></li>
-													<li class="list-inline-item"><i class="fa fa-star"></i></li>
-												</ul>
-												<p>Course Rating</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="cs_row_six">
-									<div class="sfeedbacks b0p0">
-										<h4 class="aii_title">Review</h4>
-										<div class="mbp_pagination_comments">
-											<div class="mbp_first media csv1">
-												<img src="<?=base_url()?>foster/images/resource/review1.png" class="mr-3" alt="review1.png">
-												<div class="media-body">
-											    	<h4 class="sub_title mt-0">Warren Bethell
-														<span class="sspd_review float-right">
-															<ul>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"></li>
-															</ul>
-														</span>										    		
-											    	</h4>
-											    	<a class="sspd_postdate fz14" href="#">6 months ago</a>
-											    	<p class="fz15 mt20">This is the second Photoshop course I have completed with Cristian. Worth every penny and recommend it highly. To get the most out of this course, its best to to take the Beginner to Advanced course first.</p>
-											    	<p class="fz15 mt25 mb25">The sound and video quality is of a good standard. Thank you Cristian.</p> <div class="ssp_reply float-right"><span class="flaticon-consulting-message"></span><span class="pl10">Reply</span></div>
-											    	<div class="sspd_review_liked"><a href="#"><i class="flaticon-like-1"></i> <span class="text-thm6 pl5 pr5 fz15">15</span> Thank Waren</a></div>
-													<div class="custom_hr style2"></div>
-												    <div class="mbp_sub media csv1">
-												    	<a href="#"><img src="<?=base_url()?>foster/images/resource/review1.png" class="mr-3" alt="review1.png"></a>
-												        <div class="media-body">
-												        	<h4 class="sub_title mt-0">Anton Hilton
-																<span class="sspd_review float-right">
-																	<ul>
-																		<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																		<li class="list-inline-item"></li>
-																	</ul>
-																</span>	
-												        	</h4>
-													    	<a class="sspd_postdate fz14" href="#">6 months ago</a>
-													    	<p class="fz15 mt20 mb50">This is the second Photoshop course I have completed with Cristian. Worth every penny and recommend it highly. To get the most out of this course, its best to to take the</p>
-													    	<div class="ssp_reply float-right"><span class="flaticon-consulting-message"></span><span class="pl10">Reply</span></div>
-											    			<div class="sspd_review_liked">
-											    				<a href="#"><i class="flaticon-like-1"></i><span class="text-thm6 pl5 pr5 fz15">15</span> Thank Waren</a>
-											    			</div>
-												    	</div>
-												    </div>
-												</div>
-											</div>
-											<div class="custom_hr"></div>
-											<div class="mbp_second media csv1">
-												<img src="<?=base_url()?>foster/images/resource/review1.png" class="align-self-start mr-3" alt="review1.png">
-												<div class="media-body">
-											    	<h4 class="sub_title mt-0">Warren Bethell
-														<span class="sspd_review float-right">
-															<ul>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-																<li class="list-inline-item"></li>
-															</ul>
-														</span>										    		
-											    	</h4>
-											    	<a class="sspd_postdate fz14" href="#">6 months ago</a>
-											    	<p class="fz15 mt20">This is the second Photoshop course I have completed with Cristian. Worth every penny and recommend it highly. To get the most out of this course, its best to to take the Beginner to Advanced course first.</p>
-											    	<p class="fz15 mt25 mb25">The sound and video quality is of a good standard. Thank you Cristian.</p> <div class="ssp_reply float-right"><span class="flaticon-consulting-message"></span><span class="pl10">Reply</span></div>
-											    	<div class="sspd_review_liked"><a href="#"><i class="flaticon-like-1"></i> <span class="text-thm6 pl5 pr5 fz15">15</span> Thank Waren</a></div>
-												</div>
-											</div>
-											<div class="text-center mt50">
-												<div class="custom_hr"></div>
-												<button type="button" class="more-review-btn btn">See more reviews</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="cs_row_seven">
-									<div class="sfeedbacks b0p0">
-										<div class="mbp_comment_form style2 pb0">
-											<h4>Add Reviews & Rate</h4>
-											<ul>
-												<li class="list-inline-item pr15"><p>What is it like to Course?</p></li>
-												<li class="list-inline-item">
-													<span class="sspd_review">
-														<ul>
-															<li class="list-inline-item"><a href="#"><i class="fa fa-star fz18"></i></a></li>
-															<li class="list-inline-item"><a href="#"><i class="fa fa-star fz18"></i></a></li>
-															<li class="list-inline-item"><a href="#"><i class="fa fa-star fz18"></i></a></li>
-															<li class="list-inline-item"><a href="#"><i class="fa fa-star fz18"></i></a></li>
-															<li class="list-inline-item"><a href="#"><i class="fa fa-star fz18"></i></a></li>
-															<li class="list-inline-item"></li>
-														</ul>
-													</span>
-												</li>
-											</ul>
-											<form class="comments_form">
-												<div class="form-group">
-											    	<label for="exampleInputName1">Review Title</label>
-											    	<input type="text" class="form-control" id="exampleInputName1" aria-describedby="textHelp">
-												</div>
-												<div class="form-group">
-												    <label for="exampleFormControlTextarea1">Review Content</label>
-												    <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-												</div>
-												<button type="submit" class="btn btn-thm">Submit Review <span class="flaticon-right-arrow-1"></span></button>
-											</form>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -349,8 +179,14 @@
 						<div class="price"><span>Price</span> ₹<?=$sale_price?>
 						 <?=(!empty($regular_price)?'<small>₹'.$regular_price.'</small>':'')?>
 						</div>
-						<a href="#" class="cart_btnss">Enroll Now</a>
-						<a href="#" class="cart_btnss_white">Enroll Now</a>
+						<div  class="price">
+							<form method="post" action="<?=base_url()?>enroll">
+								<input type="hidden" name="course_id" value="<?=(!empty($course_id)?$course_id:'')?>">
+								<input type="submit" name="submit" class="btn dbxshad btn-lg btn-thm3 rounded" value="Enroll Now">
+							</form>
+						</div>	
+						<br>
+						<hr>
 						<h5 class="subtitle text-left">Includes</h5>
 						<ul class="price_quere_list text-left">
 							<li><a href="#"><span class="flaticon-play-button-1"></span> 11 hours on-demand video</a></li>

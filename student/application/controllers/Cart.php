@@ -60,4 +60,68 @@ class Cart extends CI_Controller {
 	}
 
 
+	//
+	function Enroll(){ 
+		
+		$data['course_id'] =$this->input->post('course_id');
+		$submit =$this->input->post('submit');
+		//Fetch data
+				if($submit){
+					$enrolldata =$this->cart_model->GetCourses($data['course_id']);
+					$this->session->set_userdata('enroll',$enrolldata);
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/nav');
+					$this->load->view('home/checkout');
+					$this->load->view('home/include/footer');
+				}else
+				{ $auth= $this->session->enroll;
+
+					if($auth){
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/nav');
+					$this->load->view('home/checkout');
+					$this->load->view('home/include/footer');
+					}
+					else{
+						redirect();
+					}
+				}
+	}
+
+
+	//quantity update
+	function updateItemQty(){
+		$coupon =$this->input->post('coupon');
+		if (!empty($coupon)) {
+			$ticket =$this->cart_model->Getcoupon($coupon);
+			if($ticket){
+			$this->session->set_userdata('ticket',$ticket);
+			
+			$this->session->set_flashdata('success', '<span style="color:green">Coupon Added successfully </span>');
+			redirect('cart');
+			}
+
+			else{
+			$this->session->set_flashdata('wrong', '<span style="color:red">Coupon not available</span>');
+			redirect('cart');
+			}	
+		}
+
+		$update =0;
+		//get the data
+		$rowid =$this->input->post('rowid');
+		$qty =$this->input->post('qty');
+		for($i=0;$i<count($rowid);$i++){
+			$data[$i] = array('rowid' => $rowid[$i],'qty' => $qty[$i]);
+		}
+		//update the cart
+		if (!empty($rowid) && !empty($qty)) {
+
+			$update=$this->cart->update($data);
+		}
+		//return respone
+		redirect('cart');
+	}
+
+
 }

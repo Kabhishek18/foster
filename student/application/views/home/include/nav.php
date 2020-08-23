@@ -31,7 +31,7 @@
 										</h2>
 										<div class="content-vertical">
 											<ul id="vertical-menu" class="mega-vertical-menu nav navbar-nav">
-												<li><a href="#">About Us</a></li>
+												<li><a href="<?=base_url()?>about">About Us</a></li>
 												<li>
 														<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Services  <b class="caret"></b></a>
 														<div class="dropdown-menu vertical-megamenu" style="width: 300px;">
@@ -164,7 +164,7 @@
 		</div><!-- /.mobile-menu -->
 		<nav id="menu" class="stylehome1">
 			<ul>
-			<li><a href="page-contact.html">About Us</a></li>
+			<li><a href="<?=base_url()?>about">About Us</a></li>
 
 				<li><span>Our Courses</span>
 					<ul>

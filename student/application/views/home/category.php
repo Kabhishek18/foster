@@ -195,25 +195,25 @@
 							<div class="courses_list_content">
 								<div class="top_courses list">
 									<div class="thumb">
-										<img class="img-whp" src="<?=base_url()?>foster/images/courses/t1.jpg" alt="t1.jpg">
-										
+										<!-- <img class="img-whp" src="<?=base_url()?>foster/images/courses/t1.jpg" alt="t1.jpg"> -->
+										<h1 style="padding: 50px 16px;"><?=$courses['course_name']?></h1>
 									</div>
 									<div class="details">
 										<div class="tc_content">
-											<p><?=$courses['course_type']?></p>
+											<p><?=$courses['course_tenure']?></p>
 											<h5>
 												<a href="<?=base_url()?>course-detail/<?=$courses['course_id']?>/<?=(urlencode($courses['course_name']))?>" style="font-weight: 800">
-												<?=$courses['course_name']?>
+												<?=$courses['course_type']?>
 												</a>
 											</h5>
 											<p><?=$courses['course_short_desc']?></p>
 										</div>
 										<div class="tc_footer">
 											<ul class="tc_meta float-left fn-414">
-												<li class="list-inline-item"><a href="#"><i class="flaticon-profile"></i></a></li>
-												<li class="list-inline-item"><a href="#">1548</a></li>
-												<li class="list-inline-item"><a href="#"><i class="flaticon-comment"></i></a></li>
-												<li class="list-inline-item"><a href="#">25</a></li>
+												<li class="list-inline-item"><a href="#"><i class="flaticon-clock"></i></a></li>
+												<li class="list-inline-item"><a href="#"><?=$courses['course_hours']?> Hrs</a></li>
+												<li class="list-inline-item"><a href="#"><i class="flaticon-book"></i></a></li>
+												<li class="list-inline-item"><a href="#"><?=$courses['course_session']?> Session</a></li>
 											</ul>
 											<div class="tc_price float-right fn-414">
 												<?=($courses['regular_price']?'<del> ₹
@@ -221,14 +221,6 @@
 											 '.$courses['sale_price']:'₹
 											'.$courses['sale_price'] )?>	
 											</div>
-											<ul class="tc_review float-right fn-414">
-												<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-												<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-												<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-												<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-												<li class="list-inline-item"><a href="#"><i class="fa fa-star"></i></a></li>
-												<li class="list-inline-item"><a href="#">(5)</a></li>
-											</ul>
 										</div>
 									</div>
 								</div>

@@ -13,13 +13,16 @@ $route['default_controller'] = 'home';
 $route['404_override'] = 'home/NotFound';
 $route['translate_uri_dashes'] = FALSE;
 
+//Page
+$route['about'] = 'home/About';
+
 //Home
 $route['dashboard'] = 'home/Dashboard';
 $route['verify/:any/:any/:any'] = 'home/EmailVerification';
 
 
 //Course
-
+$route['']
 $route['course/:num/:any'] = 'cart/index';
 $route['course-detail/:num/:any'] = 'cart/CourseDetail';
 
@@ -27,3 +30,5 @@ $route['course-detail/:num/:any'] = 'cart/CourseDetail';
 //Scheduler
 $route['scheduler'] = 'home/Scheduler';
 
+//Enroll 
+$route['enroll'] = 'cart/Enroll';
