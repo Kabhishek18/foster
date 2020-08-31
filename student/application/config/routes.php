@@ -15,6 +15,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 //Page
 $route['about'] = 'home/About';
+$route['contact'] = 'home/Contact';
+$route['services'] = 'home/Service';
 
 //Home
 $route['dashboard'] = 'home/Dashboard';

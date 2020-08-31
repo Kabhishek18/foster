@@ -145,15 +145,15 @@ class Home extends CI_Controller {
 
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->Host     = 'mail.techcentrica.in';
+						$mail->Host     = 'mail.kabhishek18.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'info@techcentrica.in';
+						$mail->Username = 'info@kabhishek18.com';
 						$mail->Password = 'info@987';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('info@techcentrica.in', 'info@techcentrica.in');
-						$mail->addReplyTo('info@techcentrica.in', 'info@techcentrica.in');
+						$mail->setFrom('info@kabhishek18.com', 'info@kabhishek18.com');
+						$mail->addReplyTo('info@kabhishek18.com', 'info@kabhishek18.com');
 
 						// Add a recipient
 						$mail->addAddress($auth['users_email']);
@@ -202,15 +202,15 @@ class Home extends CI_Controller {
 
 							// SMTP configuration
 							$mail->isSMTP();
-							$mail->Host     = 'mail.techcentrica.in';
+							$mail->Host     = 'mail.kabhishek18.com';
 							$mail->SMTPAuth = true;
-							$mail->Username = 'info@techcentrica.in';
+							$mail->Username = 'info@kabhishek18.com';
 							$mail->Password = 'info@987';
 							$mail->SMTPSecure = 'tls';
 							$mail->Port     = 587;
 
-							$mail->setFrom('info@techcentrica.in', 'info@techcentrica.in');
-							$mail->addReplyTo('info@techcentrica.in', 'info@techcentrica.in');
+							$mail->setFrom('info@kabhishek18.com', 'info@kabhishek18.com');
+							$mail->addReplyTo('info@kabhishek18.com', 'info@kabhishek18.com');
 
 							// Add a recipient
 							$mail->addAddress($auth['users_email']);
@@ -294,15 +294,15 @@ class Home extends CI_Controller {
 
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->Host     = 'mail.techcentrica.in';
+						$mail->Host     = 'mail.kabhishek18.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'info@techcentrica.in';
+						$mail->Username = 'info@kabhishek18.com';
 						$mail->Password = 'info@987';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('info@techcentrica.in', 'info@techcentrica.in');
-						$mail->addReplyTo('info@techcentrica.in', 'info@techcentrica.in');
+						$mail->setFrom('info@kabhishek18.com', 'info@kabhishek18.com');
+						$mail->addReplyTo('info@kabhishek18.com', 'info@kabhishek18.com');
 
 						// Add a recipient
 						$mail->addAddress($auth['users_email']);

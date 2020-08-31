@@ -136,15 +136,15 @@ class Home extends CI_Controller {
 
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->Host     = 'mail.techcentrica.in';
+						$mail->Host     = 'mail.kabhishek18.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'info@techcentrica.in';
+						$mail->Username = 'info@kabhishek18.com';
 						$mail->Password = 'info@987';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('info@techcentrica.in', 'info@techcentrica.in');
-						$mail->addReplyTo('info@techcentrica.in', 'info@techcentrica.in');
+						$mail->setFrom('info@kabhishek18.com', 'info@kabhishek18.com');
+						$mail->addReplyTo('info@kabhishek18.com', 'info@kabhishek18.com');
 
 						// Add a recipient
 						$mail->addAddress($auth['users_email']);
@@ -195,15 +195,15 @@ class Home extends CI_Controller {
 
 							// SMTP configuration
 							$mail->isSMTP();
-							$mail->Host     = 'mail.techcentrica.in';
+							$mail->Host     = 'mail.kabhishek18.com';
 							$mail->SMTPAuth = true;
-							$mail->Username = 'info@techcentrica.in';
+							$mail->Username = 'info@kabhishek18.com';
 							$mail->Password = 'info@987';
 							$mail->SMTPSecure = 'tls';
 							$mail->Port     = 587;
 
-							$mail->setFrom('info@techcentrica.in', 'info@techcentrica.in');
-							$mail->addReplyTo('info@techcentrica.in', 'info@techcentrica.in');
+							$mail->setFrom('info@kabhishek18.com', 'info@kabhishek18.com');
+							$mail->addReplyTo('info@kabhishek18.com', 'info@kabhishek18.com');
 
 							// Add a recipient
 							$mail->addAddress($auth['users_email']);
@@ -285,22 +285,22 @@ class Home extends CI_Controller {
 		$auth= $this->session->user_account;
 		
 		$messagebomb = 'Click to verify <a href="'.base_url().'verify/'.$auth['users_token'].'/'.$auth['users_name'].'/'.generateUUID().'" >Link</a>';
-		$this->load->library('phpmailer_lib');
+						$this->load->library('phpmailer_lib');
 
 						// PHPMailer object
 						$mail = $this->phpmailer_lib->load();
 
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->Host     = 'mail.techcentrica.in';
+						$mail->Host     = 'mail.kabhishek18.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'info@techcentrica.in';
+						$mail->Username = 'info@kabhishek18.com';
 						$mail->Password = 'info@987';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('info@techcentrica.in', 'info@techcentrica.in');
-						$mail->addReplyTo('info@techcentrica.in', 'info@techcentrica.in');
+						$mail->setFrom('info@kabhishek18.com', 'info@kabhishek18.com');
+						$mail->addReplyTo('info@kabhishek18.com', 'info@kabhishek18.com');
 
 						// Add a recipient
 						$mail->addAddress($auth['users_email']);
@@ -426,11 +426,81 @@ class Home extends CI_Controller {
 	}
 
 
+	public function Service()
+	{
+		$this->load->view('home/include/header');
+		$this->load->view('home/include/nav');
+		$this->load->view('home/service');
+		$this->load->view('home/include/footer');
+	}
 
 
+	public function Contact()
+	{
+		$this->load->view('home/include/header');
+		$this->load->view('home/include/nav');
+		$this->load->view('home/contact');
+		$this->load->view('home/include/footer');
+	}
+
+	public function Contact_form()
+	{
+		$var['form_name'] = $this->input->post('form_name');
+		$var['form_email'] = $this->input->post('form_email');
+		$var['form_subject'] = $this->input->post('form_subject');
+		$var['form_message'] = $this->input->post('form_message');
+		$messagebomb = '<h2>Thank You,</h2> <p>'.$var['form_name'].', For Contacting Us.</p> <p>We Will get you on This email '.$var['form_email'].'</p> <p> Subject :<quote> '.$var['form_subject'].' </quote></p><p> Messsage : <quote>'.$var['form_message'].'</quote></p>';
 
 
+						$this->load->library('phpmailer_lib');
 
+						// PHPMailer object
+						$mail = $this->phpmailer_lib->load();
+
+						// SMTP configuration
+						$mail->isSMTP();
+						$mail->Host     = 'mail.kabhishek18.com';
+						$mail->SMTPAuth = true;
+						$mail->Username = 'info@kabhishek18.com';
+						$mail->Password = 'info@987';
+						$mail->SMTPSecure = 'tls';
+						$mail->Port     = 587;
+
+						$mail->setFrom('Test@mail.com', 'Test@mail.com');
+						$mail->addReplyTo('Test@mail.com', 'Test@mail.com');
+
+						// Add a recipient
+						$mail->addAddress($var['form_email']);
+
+						// Add cc or bcc 
+						$mail->addCC('kabhishek18@gmail.com');
+						//$mail->addBCC('pushapnaraingupta@gmail.com');
+
+						// Email subject
+						$mail->Subject =  'Contact Form @ Foster Bright';
+
+						// Set email format to HTML
+						$mail->isHTML(true);
+
+						// Email body content
+						$mailContent = $messagebomb;
+						$mail->Body = $mailContent;
+
+						// Send email
+						if(!$mail->send()){
+							$mail->ErrorInfo;
+							$this->session->set_flashdata('error',$mail->ErrorInfo );
+							redirect(current_url());
+						}
+
+						else{
+							$this->session->set_flashdata('success','Thank You, We will Get Back To You As Soon As Possible');
+							redirect(current_url());
+								
+						}
+
+
+	}
 
 
 }

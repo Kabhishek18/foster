@@ -36,42 +36,27 @@
 														<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Services  <b class="caret"></b></a>
 														<div class="dropdown-menu vertical-megamenu" style="width: 300px;">
 															<div class="dropdown-menu-inner">
-																<div class="element-inner">
-																	<div class="element-section-wrap">
-																		<div class="element-container">
-																			<div class="element-row">
-																				<div class="col-lg-7">
-																					<div class="row">
-																						<div class="col-lg-6">
-																							<div class="element-wrapper">
-																								
+
+																
+
+
 																								<div class="widget-nav-menu">
 																									<div class="element-list-wrapper wn-menu">
 																										<ul class="element-menu-list">
-																											<li><a href="#">Color</a></li>
-																											<li><a href="#">Digital Painting</a></li>
-																											<li><a href="#">Drawing</a></li>
-																											<li><a href="#">Illustration</a></li>
+																											<li><a href="<?=base_url()?>services">Study Abroad</a></li>
+																						                    <li><a href="<?=base_url()?>services">Immigration Assistance</a></li>
+																						                    <li><a href="<?=base_url()?>services">Online Coaching Centre</a></li>
 																										</ul>
 																									</div>
 																								</div>
 																								
-																							</div>
-																						</div>
-																						
-																					</div>
-																				</div>
-																				
-																			</div>
-																		</div>
-																	</div>
-																</div>
+
+
 															</div>
 														</div>
+
 													</li>
 												<li><a href="#">Affiliate</a></li>
-												<li><a href="#">Gallery</a></li>
-												<li><a href="#">Blogs</a></li>
 												<li><a href="#">CSR</a></li>
 
 											</ul>
@@ -180,14 +165,10 @@
 				<li><span>Our Serices</span>
 					<ul>
 	                    <li><a href="#">Study Abroad</a></li>
-	                    <li><a href="#">Immigration Support</a></li>
+	                    <li><a href="#">Immigration Assistance</a></li>
 	                    <li><a href="#">Online Coaching Centre</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Our Results</a></li>
-				<li><a href="#">Freebies</a></li>
-				<li><a href="#">Gallery</a></li>
-				<li><a href="#">Article/Blogs</a></li>
 				<li><a href="#">Career</a></li>
 				<li><a href="#">Contact Us</a></li>
 				<?php $user =$this->session->user_account;
