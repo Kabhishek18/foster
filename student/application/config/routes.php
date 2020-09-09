@@ -22,6 +22,7 @@ $route['services'] = 'home/Service';
 $route['dashboard'] = 'home/Dashboard';
 $route['mycourse'] = 'home/MyCourse';
 $route['freeevaluation'] = 'home/freeEvaluation';
+$route['freezone'] = 'home/FreezoneRead';
 $route['verify/:any/:any/:any'] = 'home/EmailVerification';
 
 

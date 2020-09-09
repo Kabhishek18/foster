@@ -19,6 +19,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['dashboard'] ='home/Dashboard';
 $route['student'] ='home/StudentList';
 $route['tutor'] ='home/TutorList';
+$route['freezone'] ='home/Freezone';
 
 //Batch
 $route['batch'] ='home/BatchList';

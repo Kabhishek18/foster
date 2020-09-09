@@ -64,6 +64,8 @@
                         </li>
                         <li><a href="<?=base_url()?>profile"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Profile</span></a>
                         </li>
+                        <li><a href="<?=base_url()?>freezone"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">FreeZone</span></a>
+                        </li>
                     </ul>
                 </li>
                 <li class=" navigation-header"><span>Batch</span>

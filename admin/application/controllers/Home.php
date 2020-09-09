@@ -580,4 +580,69 @@ class Home extends CI_Controller {
 	}
 
 
+	public function Freezone()
+	{
+		$data = $this->session->user_account;
+		if($data){	
+
+				if ($data['users_status']==0) {
+					$this->load->view('inc/header',$data);
+					$this->load->view('freezone');
+					$this->load->view('inc/foottile');
+					$this->load->view('inc/footer');
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	public function FreeUpload()
+	{
+		$data = $this->session->user_account;
+		if($data){	
+				$status = $this->input->post('status');	
+				if ($data['users_status']==0) {
+					$dir ='uploads/'.$status;
+						if (!is_dir($dir)) {
+							mkdir($dir, 0777, TRUE);
+						}
+						$new_name = date('dmyHIs');
+						$config['file_name'] = $new_name;
+						$config['upload_path'] =  $dir;
+				        $config['allowed_types'] = 'jpg|png|jpeg|mp4|docx|pdf';
+				        $config['max_size'] = 3000;
+				        $this->load->library('upload', $config);
+						$this->upload->initialize($config);
+
+						if($this->upload->do_upload('file')){
+				 		$file= $this->upload->data();
+						$auth['file'] =$file['file_name'];}
+						else{
+							
+						}
+
+						$this->session->set_flashdata('success', 'Uploaded Successfully');
+						redirect('freezone');
+
+
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+
+
 }
