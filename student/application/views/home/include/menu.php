@@ -13,6 +13,7 @@
 								<li class="active"><a href="<?=base_url()?>dashboard"><span class="flaticon-puzzle-1"></span> Dashboard</a></li>
 								<li><a href="<?=base_url()?>mycourse"><span class="flaticon-online-learning"></span> My Courses</a></li>
 								<li><a href=""><span class="flaticon-speech-bubble"></span> Messages</a></li>
+								<li><a href="<?=base_url()?>freeevaluation"><span class="flaticon-speech-bubble"></span>Free Evaluation</a></li>
 								<li><a href=""><span class="flaticon-rating"></span> Reviews</a></li>
 							</ul>
 						</div>
@@ -28,6 +29,7 @@
 										<li class="active"><a href=""><span class="flaticon-puzzle-1"></span> Dashboard</a></li>
 										<li><a href="<?=base_url()?>dashboard"><span class="flaticon-online-learning"></span> My Courses</a></li>
 										<li><a href=""><span class="flaticon-speech-bubble"></span> Messages</a></li>
+										<li><a href="<?=base_url()?>freeevaluation"><span class="flaticon-speech-bubble"></span>Free Evaluation</a></li>
 										<li><a href=""><span class="flaticon-rating"></span> Reviews</a></li>
 									</ul>
 								</div>

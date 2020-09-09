@@ -87,7 +87,96 @@ class Home extends CI_Controller {
 			redirect();
 		}
 	}
+	//Dashboard
+	public function freeEvaluation()
+	{
+		$data= $this->session->user_account;
+		if($data){	
+			if ($data['users_email_verify']==0) {
+			
+				if ($data['users_status']==0) {
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav',$data);
+					$this->load->view('home/freeevaluation');
+					$this->load->view('home/include/dash_footer');
+				}
+				else{
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav');
+					$this->session->set_flashdata('error', '<span style="color:red">Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator</span>');
+					$this->load->view('status');
+					$this->load->view('home/include/dash_footer');	
+				}
+			}else{
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav');
+					$this->session->set_flashdata('success', '<span style="color:red">Sorry, Your Account is Not Verified </span>');
+					$this->load->view('verify');
+					$this->load->view('home/include/dash_footer');
+			}
+		}
+		else{
+			redirect();
+		}
+	}
 
+	public function EvalUpload()
+	{
+		$data= $this->session->user_account;
+		if($data){	
+				if ($data['users_status']==0) {
+					$dir ='uploads/'.$data['users_id'].'/sample/';
+						if (!is_dir($dir)) {
+							mkdir($dir, 0777, TRUE);
+						}
+						$new_name = date('dmyHIs');
+						$config['file_name'] = $new_name;
+						$config['upload_path'] =  $dir;
+				        $config['allowed_types'] = 'jpg|png|jpeg|mp4|docx|pdf';
+				        $config['max_size'] = 3000;
+				        $this->load->library('upload', $config);
+						$this->upload->initialize($config);
+
+						if($this->upload->do_upload('file')){
+				 		$file= $this->upload->data();
+						$auth['file'] =$file['file_name'];}
+						else{
+							
+						}
+
+						$this->session->set_flashdata('success', 'Uploaded Successfully');
+						redirect('freeevaluation');
+
+				}
+				else{
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav');
+					$this->session->set_flashdata('error', '<span style="color:red">Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator</span>');
+					$this->load->view('status');
+					$this->load->view('home/include/dash_footer');	
+				}
+	
+			}
+		else{
+			redirect();
+		}
+	}
+
+
+	public function DeleteEval()
+	{	
+		$data= $this->session->user_account;
+		if($data){
+				$url =$this->uri->segment(3,0);
+				$dir ='uploads/'.$data['users_id'].'/sample/'.$url;
+				$state =unlink($dir);
+				$this->session->set_flashdata('warning', 'Deleted Successfully');
+				redirect('freeevaluation');
+			}
+		else{
+			redirect();
+		}	
+	}
 
 	//Logout
 	public function Logout()
@@ -254,7 +343,7 @@ class Home extends CI_Controller {
 			$this->load->view('home/include/footer');
 
 		}
-	}
+		}
 	}
 
 	//Email Verfication
@@ -498,8 +587,6 @@ class Home extends CI_Controller {
 							redirect(current_url());
 								
 						}
-
-
 	}
 
 
