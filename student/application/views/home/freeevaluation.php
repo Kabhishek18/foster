@@ -71,7 +71,7 @@
 							<div class="my_course_content_container">
 								 <?php if($this->session->flashdata('success')){ ?>
 
-                    <div class="alert alert-success" role="alert">
+                 			   <div class="alert alert-success" role="alert">
                                             <p class="mb-0">
                                                 <?php echo $this->session->flashdata('success'); ?>
                                             </p>

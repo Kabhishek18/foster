@@ -17,6 +17,7 @@ $route['translate_uri_dashes'] = FALSE;
 //Home
 $route['dashboard'] = 'home/Dashboard';
 $route['verify/:any/:any/:any'] = 'home/EmailVerification';
+$route['freeevaluation'] = 'home/FreeEvaluation';
 
 
 $route['registration'] ='home/Register';

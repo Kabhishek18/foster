@@ -87,7 +87,83 @@ class Home extends CI_Controller {
 			redirect();
 		}
 	}
-	//Dashboard
+	//Review
+	public function Review()
+	{
+		$data= $this->session->user_account;
+		if($data){	
+			if ($data['users_email_verify']==0) {
+			
+				if ($data['users_status']==0) {
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav',$data);
+					$this->load->view('home/review');
+					$this->load->view('home/include/dash_footer');
+				}
+				else{
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav');
+					$this->session->set_flashdata('error', '<span style="color:red">Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator</span>');
+					$this->load->view('status');
+					$this->load->view('home/include/dash_footer');	
+				}
+			}else{
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav');
+					$this->session->set_flashdata('success', '<span style="color:red">Sorry, Your Account is Not Verified </span>');
+					$this->load->view('verify');
+					$this->load->view('home/include/dash_footer');
+			}
+		}
+		else{
+				redirect();
+		}
+	}
+
+	public function ReviewAdd()
+	{
+		$data= $this->session->user_account;
+		if($data){	
+			if ($data['users_email_verify']==0) {
+			
+				if ($data['users_status']==0) {
+					$value['student_id'] = $data['users_id'];
+					$value['review_val'] = $this->input->post('rating');
+					$value['tutor_id'] = $this->input->post('tutor');
+					$value['review_description'] = $this->input->post('tutor_description');
+					$value['date_created'] =date('d/m/y');
+
+					$insert = $this->home_model->InsertReview($value);
+					if ($insert) {
+					 $this->session->set_flashdata('success', 'Review Submitted   ');
+					 redirect('review');
+					}
+					else{
+					 $this->session->set_flashdata('error', 'Something ! Mishappen ');
+					 redirect('review');
+					}
+				}
+				else{
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav');
+					$this->session->set_flashdata('error', '<span style="color:red">Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator</span>');
+					$this->load->view('status');
+					$this->load->view('home/include/dash_footer');	
+				}
+			}else{
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/dash_nav');
+					$this->session->set_flashdata('success', '<span style="color:red">Sorry, Your Account is Not Verified </span>');
+					$this->load->view('verify');
+					$this->load->view('home/include/dash_footer');
+			}
+		}
+		else{
+				redirect();
+		}
+	}
+
+	//FreeZone
 	public function FreezoneRead()
 	{
 		$data= $this->session->user_account;

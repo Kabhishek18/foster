@@ -643,6 +643,20 @@ class Home extends CI_Controller {
 		}
 	}
 
-
+	public function DeleteEval()
+	{	
+		$data= $this->session->user_account;
+		if($data){
+				$url =$this->uri->segment(3,0);
+				$url2 =$this->uri->segment(4,0);
+				$dir ='uploads/'.$url.'/'.$url2;
+				$state =unlink($dir);
+				$this->session->set_flashdata('warning', 'Deleted Successfully');
+				redirect('freezone');
+			}
+		else{
+			redirect();
+		}	
+	}
 
 }

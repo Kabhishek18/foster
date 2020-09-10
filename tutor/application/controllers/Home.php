@@ -597,6 +597,36 @@ class Home extends CI_Controller {
 		}
 	}
 
-
+	//Freeevaluation
+	public function FreeEvaluation()
+	{
+		$data = $this->session->user_account;
+		if($data){	
+			if ($data['users_email_verify']==0) {
+			
+				if ($data['users_status']==0) {
+					$this->load->view('home/include/header');
+					$this->load->view('home/include/sidebar',$data);
+					$this->load->view('home/freeevaluation');
+					$this->load->view('home/include/footile');
+					$this->load->view('home/include/footer');
+				}
+				else{
+					$this->load->view('home/include/header');
+					$this->session->set_flashdata('error', '<span style="color:red">Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator</span>');
+					$this->load->view('status');
+					$this->load->view('home/include/footer');	
+				}
+			}else{
+					$this->load->view('home/include/header');
+					$this->session->set_flashdata('success', '<span style="color:red">Sorry, Your Account is Not Verified </span>');
+					$this->load->view('verify');
+					$this->load->view('home/include/footer');
+			}
+		}
+		else{
+			redirect();
+		}
+	}
 
 }

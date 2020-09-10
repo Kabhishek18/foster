@@ -6,7 +6,9 @@ class Home_model extends CI_Model
 {
 	 function __construct() {
         $this->users   = 'tutors';
+        $this->students   = 'users';
         $this->tutors_avail   = 'tutors_avail';
+        $this->review   = 'reviews';
     }
 
 
@@ -133,6 +135,23 @@ class Home_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+    public function ReviewAVG($id = '')
+    {
+        $this->db->select('avg(review_val)');
+        $this->db->from($this->review);
+       
+        if($id){
+            $array = array('tutor_id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+
     public function Be_offline($value)
     {
          $data =array('avail_type'=> '1'
@@ -155,6 +174,23 @@ class Home_model extends CI_Model
         return $update?true:false;
     }
 
-
+    public function ListStudent($id = '')
+    {
+        $this->db->select('*');
+        $this->db->from($this->students);
+       
+        if($id){
+            $array = array('users_id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
 
 }

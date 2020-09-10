@@ -8,6 +8,8 @@ class Home_model extends CI_Model
         $this->users   = 'users';
         $this->slot   = 'slot';
         $this->batch   = 'batches';
+        $this->tutor   = 'tutors';
+        $this->review   = 'reviews';
     }
 
 
@@ -92,7 +94,33 @@ class Home_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+    public function TutorList($id = '')
+    {
 
+         
+         $this->db->select('*');
+        $this->db->from($this->tutor);
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    // Tutor
+    public function InsertReview($data)
+    {
+         $insert = $this->db->insert($this->review,$data);
+        return $insert?true:false;
+    }
 
 
 

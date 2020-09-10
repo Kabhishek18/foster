@@ -14,7 +14,7 @@
 								<li><a href="<?=base_url()?>mycourse"><span class="flaticon-online-learning"></span> My Courses</a></li>
 								<li><a href="<?=base_url()?>freezone"><span class="flaticon-speech-bubble"></span> FreeZone</a></li>
 								<li><a href="<?=base_url()?>freeevaluation"><span class="flaticon-speech-bubble"></span>Free Evaluation</a></li>
-								<li><a href=""><span class="flaticon-rating"></span> Reviews</a></li>
+								<li><a href="<?=base_url()?>review"><span class="flaticon-rating"></span> Reviews</a></li>
 							</ul>
 						</div>
 					</div>
@@ -30,7 +30,7 @@
 										<li><a href="<?=base_url()?>dashboard"><span class="flaticon-online-learning"></span> My Courses</a></li>
 										<li><a href="<?=base_url()?>freezone"><span class="flaticon-speech-bubble"></span> FreeZone</a></li>
 										<li><a href="<?=base_url()?>freeevaluation"><span class="flaticon-speech-bubble"></span>Free Evaluation</a></li>
-										<li><a href=""><span class="flaticon-rating"></span> Reviews</a></li>
+										<li><a href="<?=base_url()?>review"><span class="flaticon-rating"></span> Reviews</a></li>
 									</ul>
 								</div>
 							</div>
