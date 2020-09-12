@@ -11,6 +11,7 @@ class Home_model extends CI_Model
         $this->category   = 'categories';
         $this->course   = 'courses';
         $this->batch   = 'batches';
+        $this->order   = 'orders';
     }
 
 
@@ -217,6 +218,28 @@ class Home_model extends CI_Model
         $update = $this->db->delete($this->batch);
        return $update?true:false;
     }
+
+
+     public function ListOrder($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->order);
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $this->db->order_by('order_created', 'desc');
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
 
 
 }

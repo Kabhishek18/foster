@@ -8,6 +8,7 @@ class Cart_model extends CI_Model
         $this->users   = 'users';
         $this->categories   = 'categories';
         $this->courses   = 'courses';
+        $this->order   = 'orders';
     }
 
 
@@ -80,5 +81,10 @@ class Cart_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
-
+     // Tutor
+    public function InsertOrder($data)
+    {
+         $insert = $this->db->insert($this->order,$data);
+        return $insert?true:false;
+    }
 }

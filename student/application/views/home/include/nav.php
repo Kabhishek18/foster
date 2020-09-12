@@ -35,26 +35,7 @@
 												<li>
 														<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Services  <b class="caret"></b></a>
 														<div class="dropdown-menu vertical-megamenu" style="width: 300px;">
-															<div class="dropdown-menu-inner">
-
-																
-
-
-																								<div class="widget-nav-menu">
-																									<div class="element-list-wrapper wn-menu">
-																										<ul class="element-menu-list">
-																											<li><a href="<?=base_url()?>services">Study Abroad</a></li>
-																						                    <li><a href="<?=base_url()?>services">Immigration Assistance</a></li>
-																						                    <li><a href="<?=base_url()?>services">Online Coaching Centre</a></li>
-																										</ul>
-																									</div>
-																								</div>
-																								
-
-
-															</div>
-														</div>
-
+														
 													</li>
 												<li><a href="#">Affiliate</a></li>
 												<li><a href="#">CSR</a></li>
@@ -123,8 +104,6 @@
 		            </li>
 					<li class="list_five">
 		                <a href="#"><span class="title">Freebies</span></a></li>
-					 <li class="list_two">
-		                <a href="#"><span class="title">Our Results</span></a></li>
 		        </ul>
 		    </nav>
 		    <!-- End of Responsive Menu -->

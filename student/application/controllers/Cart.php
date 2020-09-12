@@ -90,7 +90,46 @@ class Cart extends CI_Controller {
 				}
 	}
 
+	public function CheckoutOrder()
+	{
+		$data= $this->session->user_account;
+		if($data){	
+			
+			$value['fullname'] = $this->input->post('fullname');
+			$value['company_name'] = $this->input->post('company_name');
+			$value['country'] = $this->input->post('country');
+			$value['street_1'] = $this->input->post('street_1');
+			$value['street_2'] = $this->input->post('street_2');
+			$value['zip'] = $this->input->post('zip');
+			$value['town'] = $this->input->post('town');
+			$value['state'] = $this->input->post('state');
+			$value['phone'] = $this->input->post('phone');
+			$value['email'] = $this->input->post('email');
+			$value['message'] = $this->input->post('message');
+			
+			$pro =$this->session->enroll;
+			$order['order_detail'] =json_encode($value);
+			$order['order_course'] =$pro['course_id'];
+			$order['order_amount'] =$pro['sale_price'];
+			$order['student_id'] =$data['users_id'];
+			$order['order_status'] = '0';
+			$order['order_created'] = date('Y-m-d H:i:s');
+			$insert = $this->cart_model->InsertOrder($order);
+			if ($insert) {
+				$this->session->set_flashdata('success', 'Order Placed Successfully');
+				redirect('enroll');
+			}
+			else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happen !!!');
+				redirect('enroll');
+			}	
+		}
+		else{
+			redirect();
+		}
 
+
+	}
 	//quantity update
 	function updateItemQty(){
 		$coupon =$this->input->post('coupon');

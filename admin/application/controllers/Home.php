@@ -659,4 +659,61 @@ class Home extends CI_Controller {
 		}	
 	}
 
+		//Order List
+	public function OrderList()
+	{
+		$data = $this->session->user_account;
+		if($data){	
+
+				if ($data['users_status']==0) {
+
+					$var['datalist'] = $this->home_model->ListOrder();
+					$this->load->view('inc/header',$data);
+					$this->load->view('orderlist',$var);
+					$this->load->view('inc/foottile');
+					$this->load->view('inc/footer');
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	public function OrderView()
+	{
+
+		$data = $this->session->user_account;
+		if($data){	
+
+				if ($data['users_status']==0) {
+
+					$url =$this->uri->segment(3,0);
+					$var = $this->home_model->ListOrder($url);
+					$this->load->view('inc/header',$data);
+					$this->load->view('orderview',$var);
+					$this->load->view('inc/foottile');
+					$this->load->view('inc/footer');
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
 }

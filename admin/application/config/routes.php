@@ -38,3 +38,4 @@ $route['course/add'] ='home/CourseAdd';
 
 //Order
 $route['order'] ='home/OrderList';
+$route['order/view/(:num)'] ='home/OrderView';
