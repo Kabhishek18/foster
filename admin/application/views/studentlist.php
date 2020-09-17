@@ -65,6 +65,7 @@
                                                         <th>Name</th>
                                                         <th>Email</th>
                                                         <th>Image</th>
+                                                        <th>Course List</th>
                                                         <th>Status</th>
                                                         <th>Action</th>
                                                     </tr>
@@ -75,6 +76,16 @@
                                                         <td><?=$items['users_name']?></td>
                                                         <td><?=$items['users_email']?></td>
                                                         <td><img src="<?=base_url()?>upload/<?=$items['users_id']?>/<?=$items['users_image']?>"></td>
+                                                        <td>
+                                                            <?php $lists =$this->home_model->ListCourseOrder($items['users_id']);
+                                                                foreach ($lists as $list){
+                                                                $course= $this->home_model->ListCourse($list['order_course']);
+                                                                  echo '<li>'.$course['course_name'].'</li>';  
+                                                                    }    ?>
+                                                            
+                                                        </td>  
+
+
                                                         <td><?=($items['users_status']==0?'Active':'Inactive')?></td>
                                                         <td>
                                                             <span class="action-edit">
@@ -96,6 +107,8 @@
                                                         <th>Name</th>
                                                         <th>Email</th>
                                                         <th>Image</th>
+                                                        <th>Course List</th>
+
                                                         <th>Status</th>
                                                         <th>Action</th>
                                                     </tr>

@@ -64,6 +64,7 @@
                                                     <tr>
                                                         <th>Name</th>
                                                         <th>Email</th>
+                                                        <th>Mobile</th>
                                                         <th>Image</th>
                                                         <th>Status</th>
                                                         <th>Action</th>
@@ -74,6 +75,7 @@
                                                     <tr>
                                                         <td><?=$items['users_name']?></td>
                                                         <td><?=$items['users_email']?></td>
+                                                        <td><?=$items['users_mobile']?></td>
                                                         <td><img src="<?=base_url()?>upload/<?=$items['users_id']?>/<?=$items['users_image']?>"></td>
                                                         <td><?=($items['users_status']==0?'Active':'Inactive')?></td>
                                                         <td>
@@ -95,6 +97,7 @@
                                                     <tr>
                                                         <th>Name</th>
                                                         <th>Email</th>
+                                                        <th>Mobile</th>
                                                         <th>Image</th>
                                                         <th>Status</th>
                                                         <th>Action</th>

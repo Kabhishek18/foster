@@ -241,5 +241,19 @@ class Home_model extends CI_Model
     }
 
 
-
+      public function ListCourseOrder($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->order);
+       
+            $array = array('student_id' => $id);
+            $this->db->where($array);
+       
+            $this->db->order_by('order_created', 'desc');
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
 }
