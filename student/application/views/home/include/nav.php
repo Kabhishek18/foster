@@ -103,7 +103,7 @@
 		                <a href="page-contact.html"><span class="title">Train With Us</span></a>
 		            </li>
 					<li class="list_five">
-		                <a href="#"><span class="title">Freebies</span></a></li>
+		                <a href="<?=base_url()?>freezone"><span class="title">Freebies</span></a></li>
 		        </ul>
 		    </nav>
 		    <!-- End of Responsive Menu -->

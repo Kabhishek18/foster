@@ -1,20 +1,27 @@
+	<!-- Inner Page Breadcrumb -->
+	<section class="inner_page_breadcrumb">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 offset-xl-3 text-center">
+					<div class="breadcrumb_content">
+						<h4 class="breadcrumb_title">Freezone</h4>
+						<ol class="breadcrumb">
+						    <li class="breadcrumb-item"><a href="<?=base_url()?>">Home</a></li>
+						    <li class="breadcrumb-item active" aria-current="page">Freezone</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-	<!-- Our Dashbord -->
-	<section class="our-dashbord dashbord pb50">
-		<div class="container-fluid">
-				<?php require('include/menu.php')?>
-					<div class="row">
-						<div class="col-lg-12">
-							<nav class="breadcrumb_widgets" aria-label="breadcrumb mb30">
-								<h4 class="title float-left">FreeZone</h4>
-								<ol class="breadcrumb float-right">
-							    	<li class="breadcrumb-item"><a href="#">Home</a></li>
-							    	<li class="breadcrumb-item active" aria-current="page">FreeZone</li>
-								</ol>
-							</nav>
-						</div>
+<!-- About Text Content -->
+	<section class="about-section">
+		<div class="container">
+			<div class="row">
+					
 						<div class="col-lg-6">
-							<h5 class="title"> Reading</h5>
+							<h2 class="title"> Reading</h2>
 								<ul style="list-style-type: square;">
 			  				     <?php
 									$map = directory_map('../admin/uploads/reading');
@@ -32,7 +39,7 @@
 						</div>
 						
 						<div class="col-lg-6">
-							<h5 class="title"> Writing</h5>
+							<h2 class="title"> Writing</h2>
 							<ul style="list-style-type: square;">
 			  				     <?php
 									$map = directory_map('../admin/uploads/writing');
@@ -49,7 +56,7 @@
 										</ul>
 						</div>
 						<div class="col-lg-6">
-							<h5 class="title"> Speaking</h5>
+							<h2 class="title"> Speaking</h2>
 							<ul style="list-style-type: square;">
 			  				     <?php
 									$map = directory_map('../admin/uploads/speaking');
@@ -66,7 +73,7 @@
 										</ul>
 						</div>
 						<div class="col-lg-6">
-							<h5 class="title"> Listening</h5>
+							<h2 class="title"> Listening</h2>
 								<ul style="list-style-type: square;">
 			  				     <?php
 									$map = directory_map('../admin/uploads/speaking');
@@ -83,13 +90,7 @@
 										</ul>
 						</div>
 					</div>	
-					<div class="row mt50">
-						<div class="col-lg-6 offset-lg-3">
-							<div class="copyright-widget text-center">
-								<p class="color-black2">Copyright Foster Bright Learning © 2020. All Rights Reserved. | Design & Developed By - TechCentrica</p>
-							</div>
-						</div>
-					</div>
+			
 				</div>
 			</div>
 		</div>
