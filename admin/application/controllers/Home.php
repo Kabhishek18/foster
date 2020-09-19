@@ -146,7 +146,110 @@ class Home extends CI_Controller {
 			redirect();
 		}
 	}
+	//Course Add View
+	public function TutorAdd()
+	{
+		$data = $this->session->user_account;
+		if($data){	
 
+				if ($data['users_status']==0) {
+					$this->load->view('inc/header',$data);
+					$urlid = $this->uri->segment(3,0);
+
+					if($urlid){
+						//Update
+						$var['datalist'] = $this->home_model->ListTutor($urlid);
+						$this->load->view('tutoradd',$var);
+					}else{
+						//Add
+						$var['datalist'] = NULL;
+						$this->load->view('tutoradd',$var);
+					}
+
+					$this->load->view('inc/foottile');
+					$this->load->view('inc/footer');
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+	//Tutor Insert And Update
+	public function Tutorinsert()
+	{
+		
+		$data = $this->session->user_account;
+		if($data){	
+
+				if ($data['users_status']==0) {
+					
+					$reg['users_id']=$this->input->post("users_id");
+					$reg['users_name']=$this->input->post("users_name");
+					$reg['users_email']=$this->input->post("users_email");
+					$reg['users_mobile']=$this->input->post("users_mobile");
+			
+					if ($reg['users_id'] == "") {
+						$reg['date_created']=date('Y-m-d');
+					}
+						$reg['date_modified']= date('Y-m-d H:i:s');
+
+					
+					
+						
+							$insert = $this->home_model->ChangeTutor($reg);
+							if ($insert) {
+								$this->session->set_flashdata('success', 'Successfully Done');
+								redirect($_SERVER['HTTP_REFERER']);
+							}
+							else{
+								$this->session->set_flashdata('Warning', 'Something Misfortune Happen');
+								redirect($_SERVER['HTTP_REFERER']);	
+							}
+						
+					
+
+
+
+
+				}
+				else{
+					$this->load->view('inc/header');
+					$this->session->set_flashdata('warning', 'Sorry, Your Account Has Been Inactive. Please Contact Your WebAdministrator');
+					$this->load->view('status');
+					$this->load->view('inc/footer');	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Delete
+	public function TutorDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->home_model->DeleteTutor($url);
+		$insert =$this->home_model->DeleteTutor2($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect('tutor');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect('tutor');
+		
+		}
+	}
 	//Category List
 	public function CategoryList()
 	{

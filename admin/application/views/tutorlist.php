@@ -51,7 +51,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Column selectors with Export and Print Options</h4>
+                                    <h4 class="card-title"><a href="<?=base_url()?>tutor/add" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Tutor Add</a> </h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
@@ -79,13 +79,13 @@
                                                         <td><img src="<?=base_url()?>upload/<?=$items['users_id']?>/<?=$items['users_image']?>"></td>
                                                         <td><?=($items['users_status']==0?'Active':'Inactive')?></td>
                                                         <td>
-                                                            <span class="action-edit">
-                                                                <a href="<?=base_url()?>student/<?=$items['users_id']?>" onclick="return confirm('Are you want to Inactive it?')">
+                                                             <span class="action-edit">
+                                                                <a href="<?=base_url()?>tutor/edit/<?=$items['users_id']?>">
                                                                  <i class="feather icon-edit"></i>
                                                                 </a>
                                                             </span>
                                                             <span class="action-delete">
-                                                                <a href="<?=base_url()?>student/<?=$items['users_id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
+                                                                <a href="<?=base_url()?>home/TutorDelete/<?=$items['users_id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
                                                                     <i class="feather icon-trash"></i>
                                                                 </a>
                                                             </span>

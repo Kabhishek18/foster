@@ -8,6 +8,7 @@ class Home_model extends CI_Model
         $this->users   = 'admin';
         $this->students   = 'users';
         $this->tutors   = 'tutors';
+        $this->tutors2   = 'tutors_avail';
         $this->category   = 'categories';
         $this->course   = 'courses';
         $this->batch   = 'batches';
@@ -100,6 +101,33 @@ class Home_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+    public function ChangeTutor($reg)
+    {   
+        if ($reg['users_id']) {
+            $this->db->where('users_id',$reg['users_id']);
+            $update = $this->db->update($this->tutors,$reg);
+            return $update?true:false;
+        }
+        else{
+            $insert = $this->db->insert($this->tutors,$reg);
+            $insert_id = $this->db->insert_id();
+            $insert2 = $this->db->insert($this->tutors2,array('tutor_id' => $insert_id));
+            return $insert?true:false;
+        }
+    }
+
+    public function DeleteTutor($reg)
+    {
+        $this->db->where('users_id',$reg);
+        $update = $this->db->delete($this->tutors);
+       return $update?true:false;
+    }
+    public function DeleteTutor2($reg)
+    {
+        $this->db->where('tutor_id',$reg);
+        $update = $this->db->delete($this->tutors2);
+       return $update?true:false;
+    }
 	public function ListCategory($id = '')
 	{
 		$this->db->select('*');
